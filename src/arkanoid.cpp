@@ -1,3 +1,4 @@
+#include <whycpp/text.h>
 #include "arkanoid.h"
 
 void Arkanoid::OnCreate(Context &ctx) {
@@ -41,7 +42,7 @@ void Arkanoid::OnCreate(Context &ctx) {
   auto brick_height = 8;
   for (int i = 1; i < 15; i++) {
     for (int j = 1; j < 4; j++) {
-      RGBA color = PALETTE[i * j % PALETTE_LEN];
+      RGBA color = PALETTE[i * j % (PALETTE_LEN-1) + 1];
       bricks.push_back(new Brick(
           brick_width * i, brick_height * j, brick_width, brick_height, color
       ));
@@ -55,9 +56,11 @@ void Arkanoid::OnRender(Context &ctx) {
   }
 
   HandlePause(ctx);
-  if (paused)
+  if (paused) {
+    Print(ctx, "Press Space", GetDisplayWidth(ctx)/2 - 30, GetDisplayHeight(ctx) / 2 - 4, PALETTE[3]);
     return;
-  DrawClearScreen(ctx, PALETTE[1]);
+  }
+  DrawClearScreen(ctx, PALETTE[0]);
   platform->Draw(ctx);
   platform->Move(ctx);
 
