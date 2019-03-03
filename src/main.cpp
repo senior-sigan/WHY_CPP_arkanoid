@@ -1,8 +1,8 @@
 #include <whycpp/whycpp.h>
-#include "arkanoid.h"
+#include "arkanoid_ecs.h"
 
 int main(int argc, char *argv[]) {
-  RunApp<Arkanoid>(ApplicationConfig(256, 144, "Application", false));
+  RunApp<ArkanoidECS>(ApplicationConfig(256, 144, "Application", false));
 
   return 0;
 }
