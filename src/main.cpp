@@ -2,7 +2,7 @@
 #include "arkanoid.h"
 
 int main(int argc, char *argv[]) {
-  RunApp<Arkanoid>({256, 144, "Arkanoid", false});
+  RunApp<Arkanoid>(ApplicationConfig(256, 144, "Application", false));
 
   return 0;
 }
