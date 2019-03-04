@@ -6,8 +6,13 @@
 
 class EntityManager {
   std::vector<Entity> entities;
-
+  size_t last_entity_id = 0;
  public:
-  void ForEach(const std::function<void(Entity &)> &block);
+  template <typename Functor>
+  void ForEach(const Functor& func) {
+    for (auto &entity : entities) {
+      func(entity);
+    }
+  }
   Entity &CreateEntity();
 };

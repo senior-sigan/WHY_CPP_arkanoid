@@ -8,18 +8,22 @@
 class Engine {
  private:
   std::vector<std::shared_ptr<ISystem>> systems;
-  EntityManager entityManager;
+  std::shared_ptr<EntityManager> entityManager;
 
  public:
+  explicit Engine();
+
   void Update(Context &ctx);
 
   template<typename System, typename... Args>
   Engine &AddSystem(Args &&... args) {
-    systems.push_back(std::make_shared<System>(std::forward<Args>(args)...));
+    auto system = std::make_shared<System>(std::forward<Args>(args)...);
+    system->entityManager = entityManager;
+    systems.push_back(system);
     return *this;
   }
 
-  EntityManager &GetEntityManager() {
+  std::shared_ptr<EntityManager> GetEntityManager() {
     return entityManager;
   }
 };

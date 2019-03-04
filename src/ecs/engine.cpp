@@ -2,6 +2,7 @@
 
 void Engine::Update(Context &ctx) {
   for (auto &system : systems) {
-    system->Update(ctx, entityManager);
+    system->Update(ctx);
   }
 }
+Engine::Engine() : entityManager(std::make_shared<EntityManager>()) {}

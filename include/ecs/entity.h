@@ -7,8 +7,9 @@
 #include <utility>
 
 class Entity {
+  friend class EntityManager;
   std::map<std::type_index, std::shared_ptr<IComponent>> components;
-
+  size_t id;
  public:
   template<typename Component, typename... Args>
   Entity &Add(Args &&... args) {
@@ -25,5 +26,9 @@ class Entity {
   template<typename Component>
   bool Contains() const {
     return components.count(typeid(Component)) != 0;
+  }
+
+  size_t GetId() const {
+    return id;
   }
 };
