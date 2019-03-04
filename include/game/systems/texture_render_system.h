@@ -1,8 +1,8 @@
 #ifndef GAME_TEXTURE_RENDER_SYSTEM_H
 #define GAME_TEXTURE_RENDER_SYSTEM_H
 
-#include "../ECS/i_system.h"
-#include "../ECS/entity.h"
+#include <ecs/i_system.h>
+#include <ecs/entity.h>
 
 class TextureRenderSystem : public ISystem {
  protected:

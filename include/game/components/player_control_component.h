@@ -2,7 +2,8 @@
 #define GAME_PLAYER_CONTROL_COMPONENT_H
 
 #include <whycpp/buttons.h>
-#include "../ECS/i_component.h"
+#include <ecs/i_component.h>
+
 class PlayerControlComponent : public IComponent {
  public:
   Button left = Button::KEY_LEFT;

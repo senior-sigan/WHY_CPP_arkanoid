@@ -1,7 +1,7 @@
 #ifndef GAME_MOVEMENT_COMPONENT_H
 #define GAME_MOVEMENT_COMPONENT_H
 
-#include "../matlib/vec2.h"
+#include <ecs/i_component.h>
 
 class MovementComponent : public IComponent {
  public:

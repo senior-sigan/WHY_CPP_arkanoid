@@ -3,7 +3,7 @@
 
 #include <map>
 #include <memory>
-#include "i_component.h"
+#include <ecs/i_component.h>
 #include <utility>
 #include <typeindex>
 

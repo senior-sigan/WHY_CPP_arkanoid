@@ -1,7 +1,8 @@
-#include "texture_render_system.h"
-#include "../components/transform_component.h"
-#include "../components/texture_component.h"
 #include <whycpp/drawing.h>
+#include <ecs/entity.h>
+#include <game/systems/texture_render_system.h>
+#include <game/components/transform_component.h>
+#include <game/components/texture_component.h>
 
 void TextureRenderSystem::Update(Context &ctx, Entity &entity) {
   auto texture = entity.Get<TextureComponent>();

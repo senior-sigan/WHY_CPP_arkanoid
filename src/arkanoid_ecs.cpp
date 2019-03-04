@@ -1,16 +1,18 @@
 #include <whycpp/palette.h>
 #include <whycpp/drawing.h>
-#include "arkanoid_ecs.h"
-#include "systems/texture_render_system.h"
-#include "components/transform_component.h"
-#include "components/texture_component.h"
-#include "systems/rectangle_render_system.h"
-#include "components/rectangle_render_component.h"
-#include "components/player_control_component.h"
-#include "systems/player_control_system.h"
-#include "components/movement_component.h"
-#include "components/ball_component.h"
-#include "systems/ball_control_system.h"
+#include <game/arkanoid_ecs.h>
+#include <game/systems/texture_render_system.h>
+#include <game/components/transform_component.h>
+#include <game/components/texture_component.h>
+#include <game/systems/rectangle_render_system.h>
+#include <game/components/rectangle_render_component.h>
+#include <game/components/player_control_component.h>
+#include <game/systems/player_control_system.h>
+#include <game/components/movement_component.h>
+#include <game/components/ball_component.h>
+#include <game/systems/ball_control_system.h>
+#include <matlib/vec2.h>
+
 void ArkanoidECS::OnCreate(Context &ctx) {
   engine
       .AddSystem<TextureRenderSystem>()

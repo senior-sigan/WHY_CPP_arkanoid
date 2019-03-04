@@ -1,7 +1,7 @@
 #ifndef GAME_RECTANGLE_RENDER_COMPONENT_H
 #define GAME_RECTANGLE_RENDER_COMPONENT_H
 
-#include "../ECS/i_component.h"
+#include <ecs/i_component.h>
 #include <whycpp/color.h>
 
 class RectangleRenderComponent : public IComponent {

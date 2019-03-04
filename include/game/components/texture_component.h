@@ -7,6 +7,7 @@
 #include <whycpp/color.h>
 #include <stdexcept>
 #include <strstream>
+#include <ecs/i_component.h>
 
 class TextureComponent : public IComponent {
  public:

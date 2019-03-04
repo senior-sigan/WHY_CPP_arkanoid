@@ -1,7 +1,7 @@
 #ifndef GAME_ISYSTEM_H
 #define GAME_ISYSTEM_H
 
-#include "entity_manager.h"
+#include <ecs/entity_manager.h>
 class Context;
 
 class ISystem {

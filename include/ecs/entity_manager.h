@@ -2,7 +2,7 @@
 #define GAME_ENTITY_MANAGER_H
 
 #include <vector>
-#include "entity.h"
+#include <ecs/entity.h>
 #include <functional>
 
 class EntityManager {

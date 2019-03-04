@@ -9,11 +9,13 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -Wall -Werror -Wextra -Winit-self -W
 set(CMAKE_DIR "${PROJECT_SOURCE_DIR}/CMake")
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_DIR}") # добавляем дополнительные модули CMake
 
-set(PROJECT_HEADERS_DIR ${PROJECT_SOURCE_DIR}/src)
+set(PROJECT_HEADERS_DIR ${PROJECT_SOURCE_DIR}/include)
 set(PROJECT_SOURCES_DIR ${PROJECT_SOURCE_DIR}/src)
 
 file(GLOB_RECURSE HEADERS ${PROJECT_HEADERS_DIR}/*.h)
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
+
+include_directories(${PROJECT_HEADERS_DIR})
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 target_link_libraries(${PROJECT_NAME} ${WHYCPP_LIBRARIES})

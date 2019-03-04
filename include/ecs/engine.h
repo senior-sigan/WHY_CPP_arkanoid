@@ -1,7 +1,7 @@
 #ifndef GAME_ENGINE_H
 #define GAME_ENGINE_H
 
-#include "i_system.h"
+#include <ecs/i_system.h>
 #include <vector>
 #include <memory>
 

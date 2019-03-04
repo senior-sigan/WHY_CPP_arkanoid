@@ -2,7 +2,7 @@
 #define GAME_ARKANOID_ECS_H
 
 #include <whycpp/application_listener.h>
-#include "ECS/engine.h"
+#include <ecs/engine.h>
 
 class ArkanoidECS: public ApplicationListener {
   Engine engine;
