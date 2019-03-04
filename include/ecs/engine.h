@@ -1,8 +1,9 @@
 #pragma once
 
+#include <ecs/entity_manager.h>
 #include <ecs/i_system.h>
-#include <vector>
 #include <memory>
+#include <vector>
 
 class Engine {
  private:
@@ -10,14 +11,10 @@ class Engine {
   EntityManager entityManager;
 
  public:
-  void Update(Context &ctx) {
-    for (auto &system: systems) {
-      system->Update(ctx, entityManager);
-    }
-  }
+  void Update(Context &ctx);
 
-  template<typename System, typename ...Args>
-  Engine& AddSystem(Args &&...args) {
+  template<typename System, typename... Args>
+  Engine &AddSystem(Args &&... args) {
     systems.push_back(std::make_shared<System>(std::forward<Args>(args)...));
     return *this;
   }

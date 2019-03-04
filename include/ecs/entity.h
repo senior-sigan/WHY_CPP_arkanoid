@@ -1,17 +1,17 @@
 #pragma once
 
+#include <ecs/i_component.h>
 #include <map>
 #include <memory>
-#include <ecs/i_component.h>
-#include <utility>
 #include <typeindex>
+#include <utility>
 
 class Entity {
   std::map<std::type_index, std::shared_ptr<IComponent>> components;
 
  public:
-  template<typename Component, typename ...Args>
-  Entity& Add(Args &&...args) {
+  template<typename Component, typename... Args>
+  Entity &Add(Args &&... args) {
     components[typeid(Component)] = std::make_shared<Component>(std::forward<Args>(args)...);
     return *this;
   }
