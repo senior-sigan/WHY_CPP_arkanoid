@@ -1,9 +1,6 @@
-#ifndef GAME_I_COMPONENT_H
-#define GAME_I_COMPONENT_H
+#pragma once
 
 class IComponent {
  public:
   virtual ~IComponent() = default;
 };
-
-#endif //GAME_I_COMPONENT_H

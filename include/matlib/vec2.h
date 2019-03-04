@@ -1,5 +1,4 @@
-#ifndef GAME_POINT_H
-#define GAME_POINT_H
+#pragma once
 
 class Vec2 {
  public:
@@ -8,5 +7,3 @@ class Vec2 {
 
   Vec2(int x, int y) : x(x), y(y) {}
 };
-
-#endif //GAME_POINT_H

@@ -1,5 +1,4 @@
-#ifndef GAME_ENTITY_H
-#define GAME_ENTITY_H
+#pragma once
 
 #include <map>
 #include <memory>
@@ -28,5 +27,3 @@ class Entity {
     return components.count(typeid(Component)) != 0;
   }
 };
-
-#endif //GAME_ENTITY_H

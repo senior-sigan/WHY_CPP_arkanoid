@@ -1,5 +1,4 @@
-#ifndef GAME_ENGINE_H
-#define GAME_ENGINE_H
+#pragma once
 
 #include <ecs/i_system.h>
 #include <vector>
@@ -27,5 +26,3 @@ class Engine {
     return entityManager;
   }
 };
-
-#endif //GAME_ENGINE_H

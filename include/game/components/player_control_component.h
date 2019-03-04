@@ -1,5 +1,4 @@
-#ifndef GAME_PLAYER_CONTROL_COMPONENT_H
-#define GAME_PLAYER_CONTROL_COMPONENT_H
+#pragma once
 
 #include <whycpp/buttons.h>
 #include <ecs/i_component.h>
@@ -9,5 +8,3 @@ class PlayerControlComponent : public IComponent {
   Button left = Button::KEY_LEFT;
   Button right = Button::KEY_RIGHT;
 };
-
-#endif //GAME_PLAYER_CONTROL_COMPONENT_H

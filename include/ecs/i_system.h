@@ -1,5 +1,4 @@
-#ifndef GAME_ISYSTEM_H
-#define GAME_ISYSTEM_H
+#pragma once
 
 #include <ecs/entity_manager.h>
 class Context;
@@ -16,5 +15,3 @@ class ISystem {
   virtual void Update(Context &ctx, Entity &entity) = 0;
   virtual bool Filter(const Entity &entity) const = 0;
 };
-
-#endif //GAME_ISYSTEM_H

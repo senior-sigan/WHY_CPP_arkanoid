@@ -1,5 +1,4 @@
-#ifndef GAME_PLAYER_CONTROL_SYSTEM_H
-#define GAME_PLAYER_CONTROL_SYSTEM_H
+#pragma once
 
 #include <ecs/i_system.h>
 
@@ -8,5 +7,3 @@ class PlayerControlSystem : public ISystem {
   void Update(Context &ctx, Entity &entity) override;
   bool Filter(const Entity &entity) const override;
 };
-
-#endif //GAME_PLAYER_CONTROL_SYSTEM_H

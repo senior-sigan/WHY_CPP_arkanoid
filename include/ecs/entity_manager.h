@@ -1,5 +1,4 @@
-#ifndef GAME_ENTITY_MANAGER_H
-#define GAME_ENTITY_MANAGER_H
+#pragma once
 
 #include <vector>
 #include <ecs/entity.h>
@@ -19,5 +18,3 @@ class EntityManager {
     return *(entities.end() - 1);
   }
 };
-
-#endif //GAME_ENTITY_MANAGER_H

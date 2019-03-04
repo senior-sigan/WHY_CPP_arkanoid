@@ -1,8 +1,6 @@
+#pragma once
+
 #include <utility>
-
-#ifndef GAME_RENDER_COMPONENT_H
-#define GAME_RENDER_COMPONENT_H
-
 #include <vector>
 #include <whycpp/color.h>
 #include <stdexcept>
@@ -34,5 +32,3 @@ class TextureComponent : public IComponent {
     return sprite.at(width * y + x);
   }
 };
-
-#endif //GAME_RENDER_COMPONENT_H
