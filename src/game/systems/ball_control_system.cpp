@@ -5,6 +5,7 @@
 #include <game/components/movement_component.h>
 #include <game/components/rigid_body_component.h>
 #include <game/components/rect_collider_component.h>
+#include <matlib/numbers.h>
 
 #include <iostream>
 
@@ -15,12 +16,15 @@ void BallControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
   auto cc = entity->Get<RectColliderComponent>();
 
   if (cc->AnyCollisions()) {
-    auto dir = ZeroVec2;
     for (const auto &collision: cc->GetCollisions()) {
-      dir += collision.manifold.normal;
+      auto v = collision.manifold.normal;
+      if (v.x > 0 || v.x < 0) {
+        mc->direction.x *= -1;
+      }
+      if (v.y > 0 || v.y < 0) {
+        mc->direction.y *= -1;
+      }
     }
-    dir.Normalize();
-    mc->direction = dir;
   }
 }
 bool BallControlSystem::Filter(std::shared_ptr<Entity> entity) const {

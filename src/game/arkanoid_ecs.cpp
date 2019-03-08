@@ -51,7 +51,7 @@ void ArkanoidECS::OnCreate(Context &ctx) {
   auto ball = engine.GetEntityManager()->CreateEntity();
   ball->Add<TransformComponent>(ball_pos, ball_size);
   ball->Add<RectColliderComponent>(ball_size);
-  ball->Add<MovementComponent>(Vec2(ball_speed, ball_speed));
+  ball->Add<MovementComponent>(Vec2(ball_speed, ball_speed), Vec2(1,-1).Normalize());
   ball->Add<RectangleRenderComponent>(ball_size, PALETTE[4], true);
   ball->Add<BallComponent>();
   ball->Add<RigidBodyComponent>();

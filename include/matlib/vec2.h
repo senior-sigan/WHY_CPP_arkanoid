@@ -71,12 +71,17 @@ class Vec2 {
     return std::sqrt(x * x + y * y);
   }
 
-  void Normalize() {
+  Vec2 Normalize() {
     auto m = Magnitude();
-    if (m <= 0.000000001)
-      return;
-    x /= m;
-    y /= m;
+    if (m <= 0.000000001) {
+      x = 0;
+      y = 0;
+    } else {
+      x /= m;
+      y /= m;
+    }
+
+    return *this;
   }
 
   friend std::ostream &operator<<(std::ostream &os, const Vec2 &vec2) {
