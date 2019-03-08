@@ -1,13 +1,10 @@
 #pragma once
 
 #include <ecs/i_system.h>
-#include <vector>
+#include <memory>
 
-class BallControlSystem: public ISystem {
-  std::vector<size_t> to_delete;
+class CircleRenderSystem : public ISystem {
  protected:
-  void OnUpdate(Context &ctx) override;
   void Update(Context &ctx, std::shared_ptr<Entity> entity) override;
   bool Filter(std::shared_ptr<Entity> entity) const override;
-  void OnPostUpdate(Context &ctx) override;
 };

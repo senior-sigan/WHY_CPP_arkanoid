@@ -15,6 +15,7 @@ class ISystem {
  protected:
   virtual void OnUpdate(Context &ctx) {};
   virtual void Update(Context &ctx, std::shared_ptr<Entity> entity) {};
+  virtual void OnPostUpdate(Context &ctx) {};
   virtual bool Filter(std::shared_ptr<Entity> entity) const {
     return true;
   };

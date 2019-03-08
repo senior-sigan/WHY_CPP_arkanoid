@@ -42,4 +42,8 @@ class Entity {
   bool operator>=(const Entity &rhs) const {
     return !(*this < rhs);
   }
+
+  virtual ~Entity() {
+    components.clear();
+  }
 };

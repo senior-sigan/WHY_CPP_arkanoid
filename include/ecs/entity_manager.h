@@ -10,10 +10,17 @@ class EntityManager {
   size_t last_entity_id = 0;
  public:
   template <typename Functor>
+  void ForEachMutable(Functor& func) {
+    for (auto &entity : entities) {
+      func(entity);
+    }
+  }
+  template <typename Functor>
   void ForEach(const Functor& func) {
     for (auto &entity : entities) {
       func(entity);
     }
   }
   std::shared_ptr<Entity> CreateEntity();
+  void DeleteEntity(size_t id);
 };

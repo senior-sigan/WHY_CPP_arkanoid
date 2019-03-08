@@ -6,4 +6,5 @@ void ISystem::Update(Context &ctx) {
   entityManager->ForEach([this, &ctx](auto &entity) {
     if (Filter(entity)) Update(ctx, entity);
   });
+  OnPostUpdate(ctx);
 }
