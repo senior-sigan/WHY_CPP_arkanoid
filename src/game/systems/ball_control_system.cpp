@@ -8,22 +8,10 @@
 #include <matlib/numbers.h>
 #include <ecs/entity_manager.h>
 #include <whycpp/drawing.h>
+#include <whycpp/lifecycle.h>
+#include <game/utils/counter.h>
 
 #include <iostream>
-
-class Counter {
-  int counter = 0;
- public:
-  void operator()(std::shared_ptr<Entity> entity) {
-    if (entity->Contains<BallComponent>()) {
-      counter++;
-    }
-  }
-
-  int get() const {
-    return counter;
-  }
-};
 
 void BallControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
   auto tc = entity->Get<TransformComponent>();
@@ -62,9 +50,11 @@ void BallControlSystem::OnPostUpdate(Context &ctx) {
   to_delete.clear();
 }
 void BallControlSystem::OnUpdate(Context &ctx) {
-  Counter counter;
+  Counter<BallComponent> counter;
   GetEntityManager()->ForEachMutable(counter);
   if (counter.get() == 0) {
     std::cout << "Game Over" << std::endl;
+    sceneManager->SetScene(2);
   }
 }
+BallControlSystem::BallControlSystem(SceneManager *sceneManager) : sceneManager(sceneManager) {}

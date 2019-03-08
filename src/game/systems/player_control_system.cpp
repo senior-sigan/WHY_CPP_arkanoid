@@ -14,15 +14,15 @@ void PlayerControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
 
   mc->direction = ZeroVec2;
 
-  if (IsPressed(ctx, pcc->left) && tc->position.x > 0) {
+  if (IsPressed(ctx, pcc->left) && tc->position.x > pcc->border_size) {
     mc->direction = LeftVec2;
   }
 
-  if (IsPressed(ctx, pcc->right) && tc->position.x < GetDisplayWidth(ctx) - tc->size.x) {
+  if (IsPressed(ctx, pcc->right) && tc->position.x < GetDisplayWidth(ctx) - tc->size.x - pcc->border_size) {
     mc->direction = RightVec2;
   }
 
-  if (IsPressed(ctx, pcc->up) && tc->position.y > 0) {
+  if (IsPressed(ctx, pcc->up) && tc->position.y > pcc->border_size) {
     mc->direction = UpVec2;
   }
 

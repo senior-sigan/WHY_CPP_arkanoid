@@ -23,4 +23,6 @@ class EntityManager {
   }
   std::shared_ptr<Entity> CreateEntity();
   void DeleteEntity(size_t id);
+  void RemoveEntities();
+  virtual ~EntityManager();
 };

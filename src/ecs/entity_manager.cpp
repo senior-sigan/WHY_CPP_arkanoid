@@ -14,3 +14,9 @@ void EntityManager::DeleteEntity(size_t id) {
   });
   entities.erase(iter, entities.end());
 }
+EntityManager::~EntityManager() {
+  entities.clear();
+}
+void EntityManager::RemoveEntities() {
+  entities.clear();
+}

@@ -26,4 +26,14 @@ class Engine {
   std::shared_ptr<EntityManager> GetEntityManager() {
     return entityManager;
   }
+
+  void RemoveSystems() {
+    systems.clear();
+  }
+
+  void RemoveEntities() {
+    entityManager->RemoveEntities();
+  }
+
+  virtual ~Engine();
 };

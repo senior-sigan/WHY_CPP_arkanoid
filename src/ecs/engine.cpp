@@ -6,3 +6,7 @@ void Engine::Update(Context &ctx) {
   }
 }
 Engine::Engine() : entityManager(std::make_shared<EntityManager>()) {}
+Engine::~Engine() {
+  RemoveEntities();
+  RemoveSystems();
+}

@@ -1,11 +1,13 @@
 #pragma once
 
 #include <whycpp/application_listener.h>
-#include <ecs/engine.h>
+#include <lib/scene_manager.h>
+#include <memory>
 
 class ArkanoidECS: public ApplicationListener {
-  Engine engine;
+  SceneManager scene_manager;
  public:
   void OnCreate(Context &ctx) override;
   void OnRender(Context &ctx) override;
+  void OnDispose(Context &ctx) override;
 };
