@@ -4,16 +4,16 @@
 #include <game/components/transform_component.h>
 #include <ecs/entity.h>
 
-void RectangleRenderSystem::Update(Context &ctx, Entity &entity) {
-  auto rect = entity.Get<RectangleRenderComponent>();
-  auto transform = entity.Get<TransformComponent>();
+void RectangleRenderSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
+  auto rect = entity->Get<RectangleRenderComponent>();
+  auto transform = entity->Get<TransformComponent>();
 
   if (rect->filled) {
-    DrawRectFill(ctx, transform->position.x, transform->position.y, rect->width, rect->height, rect->color);
+    DrawRectFill(ctx, transform->position.x, transform->position.y, rect->size.x, rect->size.y, rect->color);
   } else {
-    DrawRect(ctx, transform->position.x, transform->position.y, rect->width, rect->height, rect->color);
+    DrawRect(ctx, transform->position.x, transform->position.y, rect->size.x, rect->size.y, rect->color);
   }
 }
-bool RectangleRenderSystem::Filter(const Entity &entity) const {
-  return entity.Contains<RectangleRenderComponent>() && entity.Contains<TransformComponent>();
+bool RectangleRenderSystem::Filter(std::shared_ptr<Entity> entity) const {
+  return entity->Contains<RectangleRenderComponent>() && entity->Contains<TransformComponent>();
 }

@@ -3,9 +3,10 @@
 #include <ecs/entity.h>
 #include <functional>
 #include <vector>
+#include <memory>
 
 class EntityManager {
-  std::vector<Entity> entities;
+  std::vector<std::shared_ptr<Entity>> entities;
   size_t last_entity_id = 0;
  public:
   template <typename Functor>
@@ -14,5 +15,5 @@ class EntityManager {
       func(entity);
     }
   }
-  Entity &CreateEntity();
+  std::shared_ptr<Entity> CreateEntity();
 };

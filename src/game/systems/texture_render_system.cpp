@@ -4,9 +4,9 @@
 #include <game/components/transform_component.h>
 #include <game/components/texture_component.h>
 
-void TextureRenderSystem::Update(Context &ctx, Entity &entity) {
-  auto texture = entity.Get<TextureComponent>();
-  auto transform = entity.Get<TransformComponent>();
+void TextureRenderSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
+  auto texture = entity->Get<TextureComponent>();
+  auto transform = entity->Get<TransformComponent>();
 
   for (int x = 0; x < texture->width; x++) {
     for (int y = 0; y < texture->height; y++) {
@@ -14,6 +14,6 @@ void TextureRenderSystem::Update(Context &ctx, Entity &entity) {
     }
   }
 }
-bool TextureRenderSystem::Filter(const Entity &entity) const {
-  return entity.Contains<TextureComponent>() && entity.Contains<TransformComponent>();
+bool TextureRenderSystem::Filter(std::shared_ptr<Entity> entity) const {
+  return entity->Contains<TextureComponent>() && entity->Contains<TransformComponent>();
 }

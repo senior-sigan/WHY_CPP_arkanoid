@@ -13,8 +13,11 @@ class ISystem {
   virtual ~ISystem() = default;
 
  protected:
-  virtual void Update(Context &ctx, Entity &entity) = 0;
-  virtual bool Filter(const Entity &entity) const = 0;
+  virtual void OnUpdate(Context &ctx) {};
+  virtual void Update(Context &ctx, std::shared_ptr<Entity> entity) {};
+  virtual bool Filter(std::shared_ptr<Entity> entity) const {
+    return true;
+  };
   std::shared_ptr<EntityManager> GetEntityManager() {
     return entityManager;
   }

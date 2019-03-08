@@ -1,15 +1,15 @@
 #pragma once
 
 #include <ecs/i_component.h>
+#include <matlib/vec2.h>
 #include <whycpp/color.h>
 
 class RectangleRenderComponent : public IComponent {
  public:
-  int width;
-  int height;
+  Vec2 size;
   RGBA color;
   bool filled;
 
-  explicit RectangleRenderComponent(int width, int height, const RGBA &color, bool filled = true)
-      : width(width), height(height), color(color), filled(filled) {}
+  explicit RectangleRenderComponent(const Vec2& size, const RGBA &color, bool filled = true)
+      : size(size), color(color), filled(filled) {}
 };
