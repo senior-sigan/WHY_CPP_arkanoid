@@ -61,4 +61,8 @@ class RectColliderComponent : public IComponent {
   AABB GetAABB(const Vec2 &pos) const {
     return AABB(offset + pos, size + offset + pos);
   }
+
+  Vec2 GetSize() const {
+    return size;
+  }
 };

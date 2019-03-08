@@ -26,18 +26,18 @@ Manifold Intersection(const AABB &a, const AABB &b) {
   if (x_overlap > 0 && y_overlap > 0) {
     if (x_overlap < y_overlap) {
       if (n.x < 0) {
-        return Manifold(overlap, LeftVec2, x_overlap, true);
+        return Manifold(overlap, LeftVec2, x_overlap, true, n);
       } else {
-        return Manifold(overlap, RightVec2, x_overlap, true);
+        return Manifold(overlap, RightVec2, x_overlap, true, n);
       }
     } else {
       if (n.y < 0) {
-        return Manifold(overlap, UpVec2, y_overlap, true);
+        return Manifold(overlap, UpVec2, y_overlap, true, n);
       } else {
-        return Manifold(overlap, DownVec2, y_overlap, true);
+        return Manifold(overlap, DownVec2, y_overlap, true, n);
       }
     }
   }
 
-  return Manifold(ZeroVec2, ZeroVec2, 0, false);
+  return Manifold(ZeroVec2, ZeroVec2, 0, false, n);
 }

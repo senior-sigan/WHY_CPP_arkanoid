@@ -12,6 +12,7 @@
 #include <game/utils/counter.h>
 
 #include <iostream>
+#include <game/components/platform_component.h>
 
 void BallControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
   auto tc = entity->Get<TransformComponent>();
@@ -27,6 +28,14 @@ void BallControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
       }
       if (v.y > 0 || v.y < 0) {
         mc->direction.y *= -1;
+      }
+
+      if (collision.entity->Contains<PlatformComponent>()) {
+        auto rc_p = collision.entity->Get<RectColliderComponent>();
+        auto width = rc_p->GetSize().x / 3.5;
+        if (std::abs(collision.manifold.vec.x) > width) {
+          mc->direction.x *= -1;
+        }
       }
     }
   }

@@ -19,6 +19,7 @@
 #include <game/systems/bricks_system.h>
 #include <game/systems/circle_render_system.h>
 #include <game/components/circle_render_component.h>
+#include <game/components/platform_component.h>
 
 void CreateBorder(Engine &engine, const Vec2 &size, const Vec2 &pos) {
   auto border = engine.GetEntityManager()->CreateEntity();
@@ -66,6 +67,7 @@ void GameScene::InitEntities() {
   auto platform_speed = 290;
   auto platform = engine.GetEntityManager()->CreateEntity();
   platform->Add<PlayerControlComponent>();
+  platform->Add<PlatformComponent>();
   platform->Add<MovementComponent>(Vec2(platform_speed, 0));
   platform->Add<TransformComponent>(platform_pos, platform_size);
   platform->Add<RectColliderComponent>(platform_size);
