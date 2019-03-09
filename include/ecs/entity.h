@@ -2,15 +2,24 @@
 
 #include <ecs/i_component.h>
 #include <map>
+#include <set>
+#include <string>
 #include <memory>
 #include <typeindex>
 
 class Entity {
   friend class EntityManager;
   std::map<std::type_index, std::shared_ptr<IComponent>> components;
+  std::string tag{}; // TODO: create an index in the EntityManager for fast lookup
   size_t id;
 
  public:
+  void SetTag(const std::string& tag_) {
+    tag = tag_;
+  }
+  std::string GetTag() const {
+    return tag;
+  }
   template<typename Component>
   std::shared_ptr<Component> Get() const {
     auto c = components.at(typeid(Component));

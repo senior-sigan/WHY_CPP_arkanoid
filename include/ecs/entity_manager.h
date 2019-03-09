@@ -5,7 +5,7 @@
 #include <vector>
 
 class EntityManager {
-  std::vector<std::unique_ptr<Entity>> entities;
+  std::vector<std::unique_ptr<Entity>> entities; // TODO: it should be map instead
   size_t last_entity_id = 0;
 
  public:
