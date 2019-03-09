@@ -8,3 +8,9 @@ void ISystem::Update(Context &ctx) {
   });
   OnPostUpdate(ctx);
 }
+bool ISystem::Filter(std::shared_ptr<Entity> entity) const {
+  return true;
+}
+std::shared_ptr<EntityManager> ISystem::GetEntityManager() {
+  return entityManager;
+}

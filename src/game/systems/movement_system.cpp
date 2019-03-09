@@ -1,6 +1,7 @@
 #include <game/systems/movement_system.h>
 #include <game/components/movement_component.h>
 #include <game/components/transform_component.h>
+#include <ecs/entity.h>
 #include <whycpp/time.h>
 
 bool MovementSystem::Filter(std::shared_ptr<Entity> entity) const {

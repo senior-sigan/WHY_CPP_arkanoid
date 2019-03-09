@@ -4,7 +4,6 @@
 #include <map>
 #include <memory>
 #include <typeindex>
-#include <utility>
 
 class Entity {
   friend class EntityManager;

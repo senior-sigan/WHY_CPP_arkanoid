@@ -20,6 +20,8 @@
 #include <game/systems/circle_render_system.h>
 #include <game/components/circle_render_component.h>
 #include <game/components/platform_component.h>
+#include <ecs/entity_manager.h>
+#include <ecs/system_manager.h>
 
 void CreateBorder(Engine &engine, const Vec2 &size, const Vec2 &pos) {
   auto border = engine.GetEntityManager()->CreateEntity();
@@ -45,21 +47,21 @@ void GameScene::OnUpdate() {
   engine.Update(ctx);
 }
 void GameScene::OnDispose() {
-  engine.RemoveSystems();
-  engine.RemoveEntities();
+  engine.GetEntityManager()->RemoveEntities();
+  engine.GetSystemManager()->RemoveSystems();
 }
 
 void GameScene::InitSystems() {
-  engine
-      .AddSystem<CollisionSystem>()
-      .AddSystem<PlayerControlSystem>()
-      .AddSystem<BallControlSystem>(GetSceneManager())
-      .AddSystem<PhysicsSystem>()
-      .AddSystem<MovementSystem>()
-      .AddSystem<BricksSystem>(GetSceneManager())
-      .AddSystem<CircleRenderSystem>()
-      .AddSystem<TextureRenderSystem>()
-      .AddSystem<RectangleRenderSystem>();
+  engine.GetSystemManager()
+      ->AddSystem<CollisionSystem>()
+      ->AddSystem<PlayerControlSystem>()
+      ->AddSystem<BallControlSystem>(GetSceneManager())
+      ->AddSystem<PhysicsSystem>()
+      ->AddSystem<MovementSystem>()
+      ->AddSystem<BricksSystem>(GetSceneManager())
+      ->AddSystem<CircleRenderSystem>()
+      ->AddSystem<TextureRenderSystem>()
+      ->AddSystem<RectangleRenderSystem>();
 }
 void GameScene::InitEntities() {
   auto platform_pos = Vec2((GetDisplayWidth(ctx) - 16.0) / 2, GetDisplayHeight(ctx) - 20.0);

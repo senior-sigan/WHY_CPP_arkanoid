@@ -1,9 +1,10 @@
 #pragma once
 
-#include <ecs/entity.h>
 #include <functional>
 #include <vector>
 #include <memory>
+
+class Entity;
 
 class EntityManager {
   std::vector<std::shared_ptr<Entity>> entities;

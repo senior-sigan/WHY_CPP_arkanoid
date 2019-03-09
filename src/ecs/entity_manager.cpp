@@ -1,6 +1,7 @@
 #include <ecs/entity_manager.h>
 #include <memory>
 #include <algorithm>
+#include <ecs/entity.h>
 
 std::shared_ptr<Entity> EntityManager::CreateEntity() {
   auto entity = std::make_shared<Entity>();
