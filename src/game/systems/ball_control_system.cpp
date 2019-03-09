@@ -40,7 +40,7 @@ void BallControlSystem::Update(Context &ctx, Entity* entity) {
     }
   }
 
-  if (tc->position.y > (GetDisplayHeight(ctx) - tc->size.y)) {
+  if (tc->position.y > (GetDisplayHeight(ctx) - cc->GetSize().y)) {
     to_delete.push_back(entity->GetId());
   }
 }

@@ -15,7 +15,7 @@
 
 void GameScene::CreateBorder(const Vec2 &size, const Vec2 &pos) {
   auto border = engine->GetEntityManager()->CreateEntity();
-  border->Add<TransformComponent>(pos, size);
+  border->Add<TransformComponent>(pos);
   border->Add<RectangleRenderComponent>(size, PALETTE[13]);
   border->Add<RectColliderComponent>(size);
 }
@@ -23,7 +23,7 @@ void GameScene::CreateBorder(const Vec2 &size, const Vec2 &pos) {
 void GameScene::CreateBrick(const Vec2 &pos, const Vec2 &size) {
   auto brick = engine->GetEntityManager()->CreateEntity();
   brick->SetTag("brick");
-  brick->Add<TransformComponent>(pos, size);
+  brick->Add<TransformComponent>(pos);
   brick->Add<RectangleRenderComponent>(size, PALETTE[8]);
   brick->Add<RectColliderComponent>(size);
   brick->Add<BrickComponent>();
@@ -61,7 +61,7 @@ void GameScene::CreatePlatform(const Vec2 &platform_pos, const Vec2 &platform_si
   platform->Add<PlayerControlComponent>();
   platform->Add<PlatformComponent>();
   platform->Add<MovementComponent>(Vec2(platform_speed, 0));
-  platform->Add<TransformComponent>(platform_pos, platform_size);
+  platform->Add<TransformComponent>(platform_pos);
   platform->Add<RectColliderComponent>(platform_size);
   platform->Add<RectangleRenderComponent>(platform_size, PALETTE[10], true);
 }
@@ -72,7 +72,7 @@ void GameScene::CreateBall(const Vec2 &platform_pos, const Vec2 &platform_size) 
   auto ball_size = Vec2(br, br);
   auto ball = engine->GetEntityManager()->CreateEntity();
   ball->SetTag("ball");
-  ball->Add<TransformComponent>(ball_pos, ball_size);
+  ball->Add<TransformComponent>(ball_pos);
   ball->Add<RectColliderComponent>(ball_size);
   ball->Add<MovementComponent>(Vec2(ball_speed, ball_speed), Vec2(1, -1).Normalize());
   ball->Add<CircleRenderComponent>(br, PALETTE[5], true);
