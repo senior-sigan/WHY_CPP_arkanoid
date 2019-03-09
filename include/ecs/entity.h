@@ -22,6 +22,11 @@ class Entity {
   }
 
   template<typename Component>
+  void Add(std::shared_ptr<Component> component) {
+    components[typeid(Component)] = component;
+  }
+
+  template<typename Component>
   bool Contains() const {
     return components.count(typeid(Component)) != 0;
   }

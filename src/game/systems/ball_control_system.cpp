@@ -14,7 +14,7 @@
 #include <game/components/platform_component.h>
 #include <iostream>
 
-void BallControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
+void BallControlSystem::Update(Context &ctx, Entity* entity) {
   auto tc = entity->Get<TransformComponent>();
   auto mc = entity->Get<MovementComponent>();
   auto rc = entity->Get<RigidBodyComponent>();
@@ -44,7 +44,7 @@ void BallControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
     to_delete.push_back(entity->GetId());
   }
 }
-bool BallControlSystem::Filter(std::shared_ptr<Entity> entity) const {
+bool BallControlSystem::Filter(Entity* entity) const {
   return entity->Contains<BallComponent>() && entity->Contains<TransformComponent>() &&
          entity->Contains<MovementComponent>() && entity->Contains<RectColliderComponent>() &&
          entity->Contains<RigidBodyComponent>();

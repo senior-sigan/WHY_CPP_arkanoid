@@ -5,7 +5,6 @@
 #include <whycpp/palette.h>
 #include <whycpp/text.h>
 
-TitleScene::TitleScene(Context &ctx) : ctx(ctx) {}
 void TitleScene::OnCreate() {}
 void TitleScene::OnUpdate() {
   DrawClearScreen(ctx, PALETTE[0]);
@@ -19,3 +18,4 @@ void TitleScene::OnUpdate() {
   }
 }
 void TitleScene::OnDispose() {}
+TitleScene::TitleScene(Context & ctx):ECSScene(ctx){}

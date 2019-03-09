@@ -23,15 +23,15 @@
 #include <whycpp/drawing.h>
 #include <whycpp/palette.h>
 
-void CreateBorder(Engine &engine, const Vec2 &size, const Vec2 &pos) {
-  auto border = engine.GetEntityManager()->CreateEntity();
+void GameScene::CreateBorder(const Vec2 &size, const Vec2 &pos) {
+  auto border = engine->GetEntityManager()->CreateEntity();
   border->Add<TransformComponent>(pos, size);
   border->Add<RectangleRenderComponent>(size, PALETTE[13]);
   border->Add<RectColliderComponent>(size);
 }
 
-void CreateBrick(Engine &engine, const Vec2 &pos, const Vec2 &size) {
-  auto brick = engine.GetEntityManager()->CreateEntity();
+void GameScene::CreateBrick(const Vec2 &pos, const Vec2 &size) {
+  auto brick = engine->GetEntityManager()->CreateEntity();
   brick->Add<TransformComponent>(pos, size);
   brick->Add<RectangleRenderComponent>(size, PALETTE[8]);
   brick->Add<RectColliderComponent>(size);
@@ -44,15 +44,15 @@ void GameScene::OnCreate() {
 }
 void GameScene::OnUpdate() {
   DrawClearScreen(ctx, PALETTE[1]);
-  engine.Update(ctx);
+  engine->Update(ctx);
 }
 void GameScene::OnDispose() {
-  engine.GetEntityManager()->RemoveEntities();
-  engine.GetSystemManager()->RemoveSystems();
+  engine->GetEntityManager()->RemoveEntities();
+  engine->GetSystemManager()->RemoveSystems();
 }
 
 void GameScene::InitSystems() {
-  engine.GetSystemManager()
+  engine->GetSystemManager()
       ->AddSystem<CollisionSystem>()
       ->AddSystem<PlayerControlSystem>()
       ->AddSystem<BallControlSystem>(GetSceneManager())
@@ -67,7 +67,7 @@ void GameScene::InitEntities() {
   auto platform_pos = Vec2((GetDisplayWidth(ctx) - 16.0) / 2, GetDisplayHeight(ctx) - 20.0);
   auto platform_size = Vec2(52, 7);
   auto platform_speed = 290;
-  auto platform = engine.GetEntityManager()->CreateEntity();
+  auto platform = engine->GetEntityManager()->CreateEntity();
   platform->Add<PlayerControlComponent>();
   platform->Add<PlatformComponent>();
   platform->Add<MovementComponent>(Vec2(platform_speed, 0));
@@ -79,7 +79,7 @@ void GameScene::InitEntities() {
   auto ball_speed = 180.0;
   auto ball_pos = Vec2(platform_pos.x + platform_size.x / 2 - br / 2, platform_pos.y - br);
   auto ball_size = Vec2(br, br);
-  auto ball = engine.GetEntityManager()->CreateEntity();
+  auto ball = engine->GetEntityManager()->CreateEntity();
   ball->Add<TransformComponent>(ball_pos, ball_size);
   ball->Add<RectColliderComponent>(ball_size);
   ball->Add<MovementComponent>(Vec2(ball_speed, ball_speed), Vec2(1, -1).Normalize());
@@ -87,15 +87,16 @@ void GameScene::InitEntities() {
   ball->Add<BallComponent>();
   ball->Add<RigidBodyComponent>();
 
-  CreateBorder(engine, Vec2(GetDisplayWidth(ctx), 6), Vec2(0, 0));  // top
+  CreateBorder(Vec2(GetDisplayWidth(ctx), 6), Vec2(0, 0));  // top
   //  CreateBorder(engine, Vec2(GetDisplayWidth(ctx), 10), Vec2(0, GetDisplayHeight(ctx))); // bottom
-  CreateBorder(engine, Vec2(6, GetDisplayHeight(ctx)), Vec2(0, 0));                         // left
-  CreateBorder(engine, Vec2(6, GetDisplayHeight(ctx)), Vec2(GetDisplayWidth(ctx) - 6, 0));  // right
+  CreateBorder(Vec2(6, GetDisplayHeight(ctx)), Vec2(0, 0));                         // left
+  CreateBorder(Vec2(6, GetDisplayHeight(ctx)), Vec2(GetDisplayWidth(ctx) - 6, 0));  // right
 
   for (int i = 1; i < 12; i++) {
     for (int j = 1; j < 4; j++) {
       auto size = Vec2(15, 8);
-      CreateBrick(engine, Vec2(8 + i * (size.x + 1), 12 + j * (size.y + 1)), size);
+      CreateBrick(Vec2(8 + i * (size.x + 1), 12 + j * (size.y + 1)), size);
     }
   }
 }
+GameScene::GameScene(Context &ctx) : ECSScene(ctx) {}

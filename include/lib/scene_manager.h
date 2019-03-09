@@ -12,8 +12,9 @@ class SceneManager {
  public:
   template<typename Scene, typename... Args>
   void Add(Args &&... args) {
-    scenes.push_back(std::make_unique<Scene>(std::forward<Args>(args)...));
-    (*(scenes.end() - 1))->sceneManager = this;
+    auto scene = new Scene(std::forward<Args>(args)...);
+    scene->sceneManager = this;
+    scenes.push_back(std::unique_ptr<Scene>(scene));
   }
   void OnUpdate();
   void OnDispose();

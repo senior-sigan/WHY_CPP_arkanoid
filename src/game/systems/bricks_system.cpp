@@ -6,10 +6,10 @@
 #include <game/utils/counter.h>
 #include <iostream>
 
-bool BricksSystem::Filter(std::shared_ptr<Entity> entity) const {
+bool BricksSystem::Filter(Entity* entity) const {
   return entity->Contains<BrickComponent>() && entity->Contains<RectColliderComponent>();
 }
-void BricksSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
+void BricksSystem::Update(Context &ctx, Entity* entity) {
   auto bc = entity->Get<BrickComponent>();
   auto rc = entity->Get<RectColliderComponent>();
 

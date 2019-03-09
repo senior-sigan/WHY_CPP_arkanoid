@@ -9,10 +9,10 @@ class BricksSystem : public ISystem {
   SceneManager *sceneManager;
 
  public:
-  BricksSystem(SceneManager *sceneManager);
+  explicit BricksSystem(SceneManager *sceneManager);
 
  protected:
-  bool Filter(std::shared_ptr<Entity> entity) const override;
-  void Update(Context &ctx, std::shared_ptr<Entity> entity) override;
+  bool Filter(Entity* entity) const override;
+  void Update(Context &ctx, Entity* entity) override;
   void OnPostUpdate(Context &ctx) override;
 };

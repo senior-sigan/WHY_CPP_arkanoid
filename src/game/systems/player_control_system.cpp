@@ -7,7 +7,7 @@
 #include <whycpp/input.h>
 #include <iostream>
 
-void PlayerControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
+void PlayerControlSystem::Update(Context &ctx, Entity* entity) {
   auto tc = entity->Get<TransformComponent>();
   auto pcc = entity->Get<PlayerControlComponent>();
   auto mc = entity->Get<MovementComponent>();
@@ -30,7 +30,7 @@ void PlayerControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
     mc->direction = DownVec2;
   }
 }
-bool PlayerControlSystem::Filter(std::shared_ptr<Entity> entity) const {
+bool PlayerControlSystem::Filter(Entity* entity) const {
   return entity->Contains<PlayerControlComponent>() && entity->Contains<PlayerControlComponent>() &&
          entity->Contains<MovementComponent>();
 }

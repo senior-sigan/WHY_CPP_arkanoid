@@ -18,3 +18,4 @@ void WinScene::OnUpdate() {
   }
 }
 void WinScene::OnDispose() {}
+WinScene::WinScene(Context & ctx):ECSScene(ctx){}

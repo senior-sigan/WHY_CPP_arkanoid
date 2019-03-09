@@ -3,15 +3,15 @@
 #include <algorithm>
 #include <memory>
 
-std::shared_ptr<Entity> EntityManager::CreateEntity() {
-  auto entity = std::make_shared<Entity>();
+Entity* EntityManager::CreateEntity() {
+  auto entity = new Entity();
   entity->id = ++last_entity_id;
-  entities.push_back(entity);
+  entities.push_back(std::unique_ptr<Entity>(entity));
   return entity;
 }
 void EntityManager::DeleteEntity(size_t id) {
   auto iter = std::remove_if(entities.begin(), entities.end(),
-                             [id](const std::shared_ptr<Entity> entity) { return entity->GetId() == id; });
+                             [id](const auto& entity) { return entity->GetId() == id; });
   entities.erase(iter, entities.end());
 }
 EntityManager::~EntityManager() {

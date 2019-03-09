@@ -7,28 +7,7 @@
 #include <matlib/vec2.h>
 #include <set>
 #include <utility>
-
-class Collision {
- public:
-  std::shared_ptr<Entity> entity;
-  Manifold manifold;
-
-  Collision(std::shared_ptr<Entity> entity, Manifold manifold)
-      : entity(std::move(entity)), manifold(std::move(manifold)) {}
-
-  bool operator<(const Collision &rhs) const {
-    return entity < rhs.entity;
-  }
-  bool operator>(const Collision &rhs) const {
-    return rhs < *this;
-  }
-  bool operator<=(const Collision &rhs) const {
-    return !(rhs < *this);
-  }
-  bool operator>=(const Collision &rhs) const {
-    return !(*this < rhs);
-  }
-};
+#include <game/utils/collision.h>
 
 class RectColliderComponent : public IComponent {
   std::set<Collision> collisions{};
@@ -49,8 +28,8 @@ class RectColliderComponent : public IComponent {
     return !collisions.empty();
   }
 
-  void Collide(std::shared_ptr<Entity> entity, const Manifold &manifold) {
-    collisions.emplace(Collision{std::move(entity), manifold});
+  void Collide(Entity* entity, const Manifold &manifold) {
+    collisions.emplace(Collision{entity, manifold});
   }
 
   void Clear() {

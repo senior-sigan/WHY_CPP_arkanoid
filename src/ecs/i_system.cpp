@@ -3,14 +3,14 @@
 
 void ISystem::Update(Context &ctx) {
   OnUpdate(ctx);
-  entityManager->ForEach([this, &ctx](auto &entity) {
+  entityManager->ForEach([this, &ctx](Entity* entity) {
     if (Filter(entity)) Update(ctx, entity);
   });
   OnPostUpdate(ctx);
 }
-bool ISystem::Filter(std::shared_ptr<Entity> entity) const {
+bool ISystem::Filter(Entity* entity) const {
   return true;
 }
-std::shared_ptr<EntityManager> ISystem::GetEntityManager() {
+EntityManager* ISystem::GetEntityManager() {
   return entityManager;
 }

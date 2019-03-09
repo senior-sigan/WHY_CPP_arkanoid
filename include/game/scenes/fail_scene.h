@@ -1,14 +1,10 @@
 #pragma once
 
-#include <ecs/engine.h>
-#include <lib/scene.h>
+#include <game/scenes/ecs_scene.h>
 
-class FailScene : public IScene {
-  Engine engine;
-  Context& ctx;
-
+class FailScene : public ECSScene {
  public:
-  explicit FailScene(Context& ctx) : ctx(ctx){};
+  explicit FailScene(Context& ctx);
   void OnCreate() override;
   void OnUpdate() override;
   void OnDispose() override;

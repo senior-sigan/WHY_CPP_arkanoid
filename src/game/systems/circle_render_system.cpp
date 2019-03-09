@@ -4,7 +4,7 @@
 #include <game/systems/circle_render_system.h>
 #include <whycpp/drawing.h>
 
-void CircleRenderSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
+void CircleRenderSystem::Update(Context &ctx, Entity* entity) {
   auto obj = entity->Get<CircleRenderComponent>();
   auto transform = entity->Get<TransformComponent>();
 
@@ -14,6 +14,6 @@ void CircleRenderSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
     DrawCircleFill(ctx, transform->position.x, transform->position.y, obj->radius, obj->color);
   }
 }
-bool CircleRenderSystem::Filter(std::shared_ptr<Entity> entity) const {
+bool CircleRenderSystem::Filter(Entity* entity) const {
   return entity->Contains<CircleRenderComponent>() && entity->Contains<TransformComponent>();
 }

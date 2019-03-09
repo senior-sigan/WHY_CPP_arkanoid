@@ -3,11 +3,11 @@
 #include <game/components/transform_component.h>
 #include <game/systems/physics_system.h>
 
-bool PhysicsSystem::Filter(std::shared_ptr<Entity> entity) const {
+bool PhysicsSystem::Filter(Entity* entity) const {
   return entity->Contains<TransformComponent>() && entity->Contains<RectColliderComponent>() &&
          entity->Contains<RigidBodyComponent>();
 }
-void PhysicsSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
+void PhysicsSystem::Update(Context &ctx, Entity* entity) {
   auto tc = entity->Get<TransformComponent>();
   auto cc = entity->Get<RectColliderComponent>();
   auto rc = entity->Get<RigidBodyComponent>();

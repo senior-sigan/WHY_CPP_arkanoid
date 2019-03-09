@@ -8,7 +8,7 @@ class Counter {
   int counter = 0;
 
  public:
-  void operator()(std::shared_ptr<Entity> entity) {
+  void operator()(Entity* entity) {
     if (entity->Contains<T>()) {
       counter++;
     }

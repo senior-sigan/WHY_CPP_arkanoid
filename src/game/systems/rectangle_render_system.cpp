@@ -4,7 +4,7 @@
 #include <game/systems/rectangle_render_system.h>
 #include <whycpp/drawing.h>
 
-void RectangleRenderSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
+void RectangleRenderSystem::Update(Context &ctx, Entity* entity) {
   auto rect = entity->Get<RectangleRenderComponent>();
   auto transform = entity->Get<TransformComponent>();
 
@@ -14,6 +14,6 @@ void RectangleRenderSystem::Update(Context &ctx, std::shared_ptr<Entity> entity)
     DrawRect(ctx, transform->position.x, transform->position.y, rect->size.x, rect->size.y, rect->color);
   }
 }
-bool RectangleRenderSystem::Filter(std::shared_ptr<Entity> entity) const {
+bool RectangleRenderSystem::Filter(Entity* entity) const {
   return entity->Contains<RectangleRenderComponent>() && entity->Contains<TransformComponent>();
 }

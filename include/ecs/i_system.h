@@ -8,7 +8,7 @@ class Entity;
 
 class ISystem {
   friend class SystemManager;
-  std::shared_ptr<EntityManager> entityManager;
+  EntityManager* entityManager{};
 
  public:
   void Update(Context &ctx);
@@ -16,9 +16,9 @@ class ISystem {
 
  protected:
   virtual void OnUpdate(Context &ctx){};
-  virtual void Update(Context &ctx, std::shared_ptr<Entity> entity){};
+  virtual void Update(Context &ctx, Entity* entity){};
   virtual void OnPostUpdate(Context &ctx){};
-  virtual bool Filter(std::shared_ptr<Entity> entity) const;
-  ;
-  std::shared_ptr<EntityManager> GetEntityManager();
+  virtual bool Filter(Entity* entity) const;
+
+  EntityManager* GetEntityManager();
 };

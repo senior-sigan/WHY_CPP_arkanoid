@@ -1,29 +1,27 @@
 #pragma once
 
-#include <functional>
+#include <ecs/entity.h>
 #include <memory>
 #include <vector>
 
-class Entity;
-
 class EntityManager {
-  std::vector<std::shared_ptr<Entity>> entities;
+  std::vector<std::unique_ptr<Entity>> entities;
   size_t last_entity_id = 0;
 
  public:
   template<typename Functor>
   void ForEachMutable(Functor& func) {
     for (auto& entity : entities) {
-      func(entity);
+      func(entity.get());
     }
   }
   template<typename Functor>
   void ForEach(const Functor& func) {
     for (auto& entity : entities) {
-      func(entity);
+      func(entity.get());
     }
   }
-  std::shared_ptr<Entity> CreateEntity();
+  Entity* CreateEntity();
   void DeleteEntity(size_t id);
   void RemoveEntities();
   virtual ~EntityManager();

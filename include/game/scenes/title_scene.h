@@ -1,12 +1,8 @@
 #pragma once
 
-#include <ecs/engine.h>
-#include <lib/scene.h>
+#include <game/scenes/ecs_scene.h>
 
-class TitleScene : public IScene {
-  Engine engine;
-  Context& ctx;
-
+class TitleScene : public ECSScene {
  public:
   explicit TitleScene(Context& ctx);
   void OnCreate() override;

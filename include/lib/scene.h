@@ -9,10 +9,7 @@ class IScene {
   SceneManager* sceneManager = nullptr;
 
  public:
-  SceneManager* GetSceneManager() const {
-    return sceneManager;
-  }
-
+  SceneManager* GetSceneManager() const;
   virtual void OnCreate() {}
   virtual void OnUpdate() {}
   virtual void OnDispose() {}

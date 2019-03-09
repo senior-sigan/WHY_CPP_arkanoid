@@ -4,7 +4,7 @@
 #include <game/systems/texture_render_system.h>
 #include <whycpp/drawing.h>
 
-void TextureRenderSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
+void TextureRenderSystem::Update(Context &ctx, Entity* entity) {
   auto texture = entity->Get<TextureComponent>();
   auto transform = entity->Get<TransformComponent>();
 
@@ -14,6 +14,6 @@ void TextureRenderSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
     }
   }
 }
-bool TextureRenderSystem::Filter(std::shared_ptr<Entity> entity) const {
+bool TextureRenderSystem::Filter(Entity* entity) const {
   return entity->Contains<TextureComponent>() && entity->Contains<TransformComponent>();
 }
