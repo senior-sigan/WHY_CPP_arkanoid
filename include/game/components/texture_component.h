@@ -1,11 +1,11 @@
 #pragma once
 
-#include <utility>
-#include <vector>
+#include <ecs/i_component.h>
 #include <whycpp/color.h>
 #include <stdexcept>
 #include <strstream>
-#include <ecs/i_component.h>
+#include <utility>
+#include <vector>
 
 class TextureComponent : public IComponent {
  public:

@@ -1,14 +1,12 @@
 #include <game/scenes/fail_scene.h>
-#include <whycpp/palette.h>
-#include <whycpp/drawing.h>
-#include <whycpp/text.h>
-#include <whycpp/buttons.h>
-#include <whycpp/input.h>
 #include <lib/scene_manager.h>
+#include <whycpp/buttons.h>
+#include <whycpp/drawing.h>
+#include <whycpp/input.h>
+#include <whycpp/palette.h>
+#include <whycpp/text.h>
 
-void FailScene::OnCreate() {
-
-}
+void FailScene::OnCreate() {}
 void FailScene::OnUpdate() {
   DrawClearScreen(ctx, PALETTE[8]);
   auto x = 1;
@@ -19,6 +17,4 @@ void FailScene::OnUpdate() {
     GetSceneManager()->SetScene(0);
   }
 }
-void FailScene::OnDispose() {
-
-}
+void FailScene::OnDispose() {}

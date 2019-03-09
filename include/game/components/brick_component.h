@@ -2,6 +2,4 @@
 
 #include <ecs/i_component.h>
 
-class BrickComponent: public IComponent {
-
-};
+class BrickComponent : public IComponent {};

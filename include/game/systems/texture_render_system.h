@@ -1,7 +1,7 @@
 #pragma once
 
-#include <ecs/i_system.h>
 #include <ecs/entity.h>
+#include <ecs/i_system.h>
 
 class TextureRenderSystem : public ISystem {
  protected:

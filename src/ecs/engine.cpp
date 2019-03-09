@@ -5,8 +5,8 @@
 void Engine::Update(Context &ctx) {
   systemManager->Update(ctx);
 }
-Engine::Engine() : entityManager(std::make_shared<EntityManager>()),
-                   systemManager(std::make_shared<SystemManager>(entityManager)) {}
+Engine::Engine()
+    : entityManager(std::make_shared<EntityManager>()), systemManager(std::make_shared<SystemManager>(entityManager)) {}
 std::shared_ptr<EntityManager> Engine::GetEntityManager() {
   return entityManager;
 }

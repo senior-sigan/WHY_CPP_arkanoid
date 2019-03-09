@@ -1,27 +1,27 @@
-#include <game/scenes/game_scene.h>
-#include <whycpp/palette.h>
-#include <whycpp/drawing.h>
-#include <game/arkanoid_ecs.h>
-#include <game/systems/texture_render_system.h>
-#include <game/components/transform_component.h>
-#include <game/systems/rectangle_render_system.h>
-#include <game/components/rectangle_render_component.h>
-#include <game/components/player_control_component.h>
-#include <game/systems/player_control_system.h>
-#include <game/components/movement_component.h>
-#include <game/components/ball_component.h>
-#include <game/systems/ball_control_system.h>
-#include <game/systems/collision_system.h>
-#include <game/components/rigid_body_component.h>
-#include <game/systems/physics_system.h>
-#include <game/systems/movement_system.h>
-#include <game/components/brick_component.h>
-#include <game/systems/bricks_system.h>
-#include <game/systems/circle_render_system.h>
-#include <game/components/circle_render_component.h>
-#include <game/components/platform_component.h>
 #include <ecs/entity_manager.h>
 #include <ecs/system_manager.h>
+#include <game/arkanoid_ecs.h>
+#include <game/components/ball_component.h>
+#include <game/components/brick_component.h>
+#include <game/components/circle_render_component.h>
+#include <game/components/movement_component.h>
+#include <game/components/platform_component.h>
+#include <game/components/player_control_component.h>
+#include <game/components/rectangle_render_component.h>
+#include <game/components/rigid_body_component.h>
+#include <game/components/transform_component.h>
+#include <game/scenes/game_scene.h>
+#include <game/systems/ball_control_system.h>
+#include <game/systems/bricks_system.h>
+#include <game/systems/circle_render_system.h>
+#include <game/systems/collision_system.h>
+#include <game/systems/movement_system.h>
+#include <game/systems/physics_system.h>
+#include <game/systems/player_control_system.h>
+#include <game/systems/rectangle_render_system.h>
+#include <game/systems/texture_render_system.h>
+#include <whycpp/drawing.h>
+#include <whycpp/palette.h>
 
 void CreateBorder(Engine &engine, const Vec2 &size, const Vec2 &pos) {
   auto border = engine.GetEntityManager()->CreateEntity();
@@ -87,10 +87,10 @@ void GameScene::InitEntities() {
   ball->Add<BallComponent>();
   ball->Add<RigidBodyComponent>();
 
-  CreateBorder(engine, Vec2(GetDisplayWidth(ctx), 6), Vec2(0, 0)); // top
-//  CreateBorder(engine, Vec2(GetDisplayWidth(ctx), 10), Vec2(0, GetDisplayHeight(ctx))); // bottom
-  CreateBorder(engine, Vec2(6, GetDisplayHeight(ctx)), Vec2(0, 0)); // left
-  CreateBorder(engine, Vec2(6, GetDisplayHeight(ctx)), Vec2(GetDisplayWidth(ctx)-6, 0)); // right
+  CreateBorder(engine, Vec2(GetDisplayWidth(ctx), 6), Vec2(0, 0));  // top
+  //  CreateBorder(engine, Vec2(GetDisplayWidth(ctx), 10), Vec2(0, GetDisplayHeight(ctx))); // bottom
+  CreateBorder(engine, Vec2(6, GetDisplayHeight(ctx)), Vec2(0, 0));                         // left
+  CreateBorder(engine, Vec2(6, GetDisplayHeight(ctx)), Vec2(GetDisplayWidth(ctx) - 6, 0));  // right
 
   for (int i = 1; i < 12; i++) {
     for (int j = 1; j < 4; j++) {

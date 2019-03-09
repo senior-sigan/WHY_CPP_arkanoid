@@ -7,6 +7,7 @@ class SceneManager;
 class IScene {
   friend class SceneManager;
   SceneManager* sceneManager = nullptr;
+
  public:
   SceneManager* GetSceneManager() const {
     return sceneManager;

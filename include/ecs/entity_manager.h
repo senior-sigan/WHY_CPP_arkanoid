@@ -1,24 +1,25 @@
 #pragma once
 
 #include <functional>
-#include <vector>
 #include <memory>
+#include <vector>
 
 class Entity;
 
 class EntityManager {
   std::vector<std::shared_ptr<Entity>> entities;
   size_t last_entity_id = 0;
+
  public:
-  template <typename Functor>
+  template<typename Functor>
   void ForEachMutable(Functor& func) {
-    for (auto &entity : entities) {
+    for (auto& entity : entities) {
       func(entity);
     }
   }
-  template <typename Functor>
+  template<typename Functor>
   void ForEach(const Functor& func) {
-    for (auto &entity : entities) {
+    for (auto& entity : entities) {
       func(entity);
     }
   }

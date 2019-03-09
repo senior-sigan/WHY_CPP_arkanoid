@@ -1,8 +1,8 @@
-#include <whycpp/drawing.h>
 #include <ecs/entity.h>
-#include <game/systems/texture_render_system.h>
-#include <game/components/transform_component.h>
 #include <game/components/texture_component.h>
+#include <game/components/transform_component.h>
+#include <game/systems/texture_render_system.h>
+#include <whycpp/drawing.h>
 
 void TextureRenderSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
   auto texture = entity->Get<TextureComponent>();

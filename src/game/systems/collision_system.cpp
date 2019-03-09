@@ -1,7 +1,7 @@
+#include <ecs/entity_manager.h>
 #include <game/systems/collision_system.h>
 #include <matlib/colliders.h>
 #include <matlib/manifold.h>
-#include <ecs/entity_manager.h>
 #include <iostream>
 
 void CollisionSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
@@ -10,7 +10,9 @@ void CollisionSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
   auto box = cc->GetAABB(tc->position);
 
   GetEntityManager()->ForEach([cc, box, entity](std::shared_ptr<Entity> e) {
-    if (!e->Contains<RectColliderComponent>() || e->GetId() == entity->GetId()) { return; }
+    if (!e->Contains<RectColliderComponent>() || e->GetId() == entity->GetId()) {
+      return;
+    }
     auto tc2 = e->Get<TransformComponent>();
     auto cc2 = e->Get<RectColliderComponent>();
     auto box2 = cc2->GetAABB(tc2->position);

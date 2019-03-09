@@ -12,7 +12,7 @@ class SystemManager {
   explicit SystemManager(std::shared_ptr<EntityManager> entityManager) : entityManager(std::move(entityManager)) {}
 
   template<typename System, typename... Args>
-  SystemManager* AddSystem(Args &&... args) {
+  SystemManager *AddSystem(Args &&... args) {
     auto system = std::make_shared<System>(std::forward<Args>(args)...);
     system->entityManager = entityManager;
     systems.push_back(system);

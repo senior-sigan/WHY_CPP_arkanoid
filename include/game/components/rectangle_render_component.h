@@ -10,6 +10,6 @@ class RectangleRenderComponent : public IComponent {
   RGBA color;
   bool filled;
 
-  explicit RectangleRenderComponent(const Vec2& size, const RGBA &color, bool filled = true)
+  explicit RectangleRenderComponent(const Vec2& size, const RGBA& color, bool filled = true)
       : size(size), color(color), filled(filled) {}
 };

@@ -1,5 +1,5 @@
-#include <lib/scene_manager.h>
 #include <lib/scene.h>
+#include <lib/scene_manager.h>
 #include <iostream>
 
 void SceneManager::OnUpdate() {
@@ -15,13 +15,12 @@ void SceneManager::OnUpdate() {
     }
     scenes.at(current_scene)->OnUpdate();
   } else {
-    std::cout << "[WARNING] Cannot update scene " << current_scene
-              << ": it doesn't exist. Scenes size is "
+    std::cout << "[WARNING] Cannot update scene " << current_scene << ": it doesn't exist. Scenes size is "
               << scenes.size() << std::endl;
   }
 }
 void SceneManager::OnDispose() {
-  for (auto &scene: scenes) {
+  for (auto &scene : scenes) {
     scene->OnDispose();
   }
   scenes.clear();

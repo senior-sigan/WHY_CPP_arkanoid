@@ -1,18 +1,18 @@
 #include <ecs/entity.h>
-#include <game/systems/ball_control_system.h>
-#include <game/components/ball_component.h>
-#include <game/components/transform_component.h>
-#include <game/components/movement_component.h>
-#include <game/components/rigid_body_component.h>
-#include <game/components/rect_collider_component.h>
-#include <matlib/numbers.h>
 #include <ecs/entity_manager.h>
+#include <game/components/ball_component.h>
+#include <game/components/movement_component.h>
+#include <game/components/rect_collider_component.h>
+#include <game/components/rigid_body_component.h>
+#include <game/components/transform_component.h>
+#include <game/systems/ball_control_system.h>
+#include <game/utils/counter.h>
+#include <matlib/numbers.h>
 #include <whycpp/drawing.h>
 #include <whycpp/lifecycle.h>
-#include <game/utils/counter.h>
 
-#include <iostream>
 #include <game/components/platform_component.h>
+#include <iostream>
 
 void BallControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
   auto tc = entity->Get<TransformComponent>();
@@ -21,7 +21,7 @@ void BallControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
   auto cc = entity->Get<RectColliderComponent>();
 
   if (cc->AnyCollisions()) {
-    for (const auto &collision: cc->GetCollisions()) {
+    for (const auto &collision : cc->GetCollisions()) {
       auto v = collision.manifold.normal;
       if (v.x > 0 || v.x < 0) {
         mc->direction.x *= -1;
@@ -40,19 +40,17 @@ void BallControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
     }
   }
 
-  if (tc->position.y > (GetDisplayHeight(ctx)-tc->size.y)) {
+  if (tc->position.y > (GetDisplayHeight(ctx) - tc->size.y)) {
     to_delete.push_back(entity->GetId());
   }
 }
 bool BallControlSystem::Filter(std::shared_ptr<Entity> entity) const {
-  return entity->Contains<BallComponent>()
-      && entity->Contains<TransformComponent>()
-      && entity->Contains<MovementComponent>()
-      && entity->Contains<RectColliderComponent>()
-      && entity->Contains<RigidBodyComponent>();
+  return entity->Contains<BallComponent>() && entity->Contains<TransformComponent>() &&
+         entity->Contains<MovementComponent>() && entity->Contains<RectColliderComponent>() &&
+         entity->Contains<RigidBodyComponent>();
 }
 void BallControlSystem::OnPostUpdate(Context &ctx) {
-  for (auto id: to_delete) {
+  for (auto id : to_delete) {
     GetEntityManager()->DeleteEntity(id);
     std::cout << "Delete ball " << id << std::endl;
   }

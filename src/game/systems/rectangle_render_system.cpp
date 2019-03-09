@@ -1,8 +1,8 @@
-#include <whycpp/drawing.h>
-#include <game/systems/rectangle_render_system.h>
+#include <ecs/entity.h>
 #include <game/components/rectangle_render_component.h>
 #include <game/components/transform_component.h>
-#include <ecs/entity.h>
+#include <game/systems/rectangle_render_system.h>
+#include <whycpp/drawing.h>
 
 void RectangleRenderSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
   auto rect = entity->Get<RectangleRenderComponent>();

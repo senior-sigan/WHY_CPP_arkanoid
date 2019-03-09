@@ -1,15 +1,15 @@
 #pragma once
 
-#include <ostream>
 #include <cmath>
+#include <ostream>
 
 class Vec2 {
  public:
   double x;
   double y;
 
-  constexpr Vec2() noexcept: x(0.0), y(0.0) {}
-  constexpr Vec2(double x, double y) noexcept: x(x), y(y) {}
+  constexpr Vec2() noexcept : x(0.0), y(0.0) {}
+  constexpr Vec2(double x, double y) noexcept : x(x), y(y) {}
 
   bool operator==(const Vec2 &rhs) const {
     return std::tie(x, y) == std::tie(rhs.x, rhs.y);

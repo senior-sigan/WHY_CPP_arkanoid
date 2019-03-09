@@ -1,4 +1,3 @@
 #pragma once
 
-class GameState {
-};
+class GameState {};

@@ -1,11 +1,11 @@
-#include <whycpp/input.h>
-#include <whycpp/drawing.h>
-#include <game/systems/player_control_system.h>
-#include <game/components/transform_component.h>
-#include <game/components/player_control_component.h>
-#include <game/components/movement_component.h>
-#include <iostream>
 #include <ecs/entity.h>
+#include <game/components/movement_component.h>
+#include <game/components/player_control_component.h>
+#include <game/components/transform_component.h>
+#include <game/systems/player_control_system.h>
+#include <whycpp/drawing.h>
+#include <whycpp/input.h>
+#include <iostream>
 
 void PlayerControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
   auto tc = entity->Get<TransformComponent>();
@@ -31,7 +31,6 @@ void PlayerControlSystem::Update(Context &ctx, std::shared_ptr<Entity> entity) {
   }
 }
 bool PlayerControlSystem::Filter(std::shared_ptr<Entity> entity) const {
-  return entity->Contains<PlayerControlComponent>()
-      && entity->Contains<PlayerControlComponent>()
-      && entity->Contains<MovementComponent>();
+  return entity->Contains<PlayerControlComponent>() && entity->Contains<PlayerControlComponent>() &&
+         entity->Contains<MovementComponent>();
 }

@@ -1,13 +1,14 @@
 #pragma once
 
-#include <lib/scene.h>
 #include <ecs/engine.h>
+#include <lib/scene.h>
 
-class TitleScene: public IScene {
+class TitleScene : public IScene {
   Engine engine;
   Context& ctx;
+
  public:
-  explicit TitleScene(Context &ctx);
+  explicit TitleScene(Context& ctx);
   void OnCreate() override;
   void OnUpdate() override;
   void OnDispose() override;

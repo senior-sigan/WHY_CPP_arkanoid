@@ -1,12 +1,12 @@
 #pragma once
 
-#include <ecs/i_component.h>
-#include <matlib/vec2.h>
-#include <matlib/aabb.h>
-#include <set>
 #include <ecs/entity.h>
-#include <utility>
+#include <ecs/i_component.h>
+#include <matlib/aabb.h>
 #include <matlib/manifold.h>
+#include <matlib/vec2.h>
+#include <set>
+#include <utility>
 
 class Collision {
  public:
@@ -34,12 +34,11 @@ class RectColliderComponent : public IComponent {
   std::set<Collision> collisions{};
   Vec2 size;
   Vec2 offset;
+
  public:
   bool is_trigger;
 
-  explicit RectColliderComponent(const Vec2 &size,
-                                 const Vec2 &offset = ZeroVec2,
-                                 bool is_trigger = false)
+  explicit RectColliderComponent(const Vec2 &size, const Vec2 &offset = ZeroVec2, bool is_trigger = false)
       : size(size), offset(offset), is_trigger(is_trigger) {}
 
   const std::set<Collision> &GetCollisions() const {

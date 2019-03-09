@@ -9,6 +9,7 @@ class Entity {
   friend class EntityManager;
   std::map<std::type_index, std::shared_ptr<IComponent>> components;
   size_t id;
+
  public:
   template<typename Component>
   std::shared_ptr<Component> Get() const {

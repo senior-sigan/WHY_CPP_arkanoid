@@ -1,14 +1,12 @@
 #include <game/scenes/title_scene.h>
-#include <whycpp/palette.h>
-#include <whycpp/text.h>
+#include <lib/scene_manager.h>
 #include <whycpp/drawing.h>
 #include <whycpp/input.h>
-#include <lib/scene_manager.h>
+#include <whycpp/palette.h>
+#include <whycpp/text.h>
 
 TitleScene::TitleScene(Context &ctx) : ctx(ctx) {}
-void TitleScene::OnCreate() {
-
-}
+void TitleScene::OnCreate() {}
 void TitleScene::OnUpdate() {
   DrawClearScreen(ctx, PALETTE[0]);
   Print(ctx, "ARKANOID", 1, 1, PALETTE[7], 3);
@@ -20,6 +18,4 @@ void TitleScene::OnUpdate() {
     GetSceneManager()->SetScene(1);
   }
 }
-void TitleScene::OnDispose() {
-
-}
+void TitleScene::OnDispose() {}

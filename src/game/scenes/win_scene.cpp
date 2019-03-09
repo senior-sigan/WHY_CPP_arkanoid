@@ -1,14 +1,12 @@
 #include <game/scenes/win_scene.h>
-#include <whycpp/palette.h>
-#include <whycpp/drawing.h>
-#include <whycpp/text.h>
-#include <whycpp/buttons.h>
-#include <whycpp/input.h>
 #include <lib/scene_manager.h>
+#include <whycpp/buttons.h>
+#include <whycpp/drawing.h>
+#include <whycpp/input.h>
+#include <whycpp/palette.h>
+#include <whycpp/text.h>
 
-void WinScene::OnCreate() {
-
-}
+void WinScene::OnCreate() {}
 void WinScene::OnUpdate() {
   DrawClearScreen(ctx, PALETTE[11]);
   auto x = 1;
@@ -19,6 +17,4 @@ void WinScene::OnUpdate() {
     GetSceneManager()->SetScene(0);
   }
 }
-void WinScene::OnDispose() {
-
-}
+void WinScene::OnDispose() {}
