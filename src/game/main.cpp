@@ -2,6 +2,6 @@
 #include <whycpp/whycpp.h>
 
 int main(int argc, char *argv[]) {
-  RunApp<ArkanoidECS>(ApplicationConfig(224, 256, "Application", false));
+  RunApp<ArkanoidECS>(ApplicationConfig(224, 256, "Application", false, 2));
   return 0;
 }
