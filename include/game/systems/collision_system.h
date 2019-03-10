@@ -8,7 +8,5 @@ class CollisionSystem : public ISystem {
  protected:
   void OnUpdate(Context &ctx) override;
   void Update(Context &ctx, Entity* entity) override;
-  bool Filter(Entity* entity) const override {
-    return entity->Contains<TransformComponent>() && entity->Contains<RectColliderComponent>();
-  }
+  bool Filter(Entity* entity) const override;
 };

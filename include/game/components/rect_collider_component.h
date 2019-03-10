@@ -11,14 +11,17 @@
 
 class RectColliderComponent : public IComponent {
   std::set<Collision> collisions{};
+ public:
   Vec2 size;
   Vec2 offset;
-
- public:
   bool is_trigger;
+  bool is_sleeping;
 
-  explicit RectColliderComponent(const Vec2 &size, const Vec2 &offset = ZeroVec2, bool is_trigger = false)
-      : size(size), offset(offset), is_trigger(is_trigger) {}
+  explicit RectColliderComponent(const Vec2 &size,
+                                 const Vec2 &offset = ZeroVec2,
+                                 bool is_trigger = false,
+                                 bool is_sleeping = false)
+      : size(size), offset(offset), is_trigger(is_trigger), is_sleeping(is_sleeping) {}
 
   const std::set<Collision> &GetCollisions() const {
     return collisions;
@@ -28,7 +31,7 @@ class RectColliderComponent : public IComponent {
     return !collisions.empty();
   }
 
-  void Collide(Entity* entity, const Manifold &manifold) {
+  void Collide(Entity *entity, const Manifold &manifold) {
     collisions.emplace(Collision{entity, manifold});
   }
 

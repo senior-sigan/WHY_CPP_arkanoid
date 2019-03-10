@@ -4,18 +4,41 @@
 #include <game/components/rect_collider_component.h>
 #include <game/systems/bricks_system.h>
 #include <game/utils/counter.h>
+#include <game/entities/bonuses.h>
 #include <iostream>
+#include <game/components/transform_component.h>
+#include <cstdlib>
 
-bool BricksSystem::Filter(Entity* entity) const {
-  return entity->Contains<BrickComponent>() && entity->Contains<RectColliderComponent>();
+int rnd(int bound) {
+  return std::rand() % bound;
 }
-void BricksSystem::Update(Context &ctx, Entity* entity) {
+
+void SpawnBonus(EntityManager *manager, const Vec2 &pos) {
+  if (rnd(2) == 0) {
+    double power;
+    if (rnd(2) == 0) {
+      power = 0.5;
+    } else {
+      power = 1.25;
+    }
+    CreateBonus(manager, pos, power);
+  }
+};
+
+bool BricksSystem::Filter(Entity *entity) const {
+  return entity->Contains<BrickComponent>()
+      && entity->Contains<RectColliderComponent>()
+      && entity->Contains<TransformComponent>();
+}
+void BricksSystem::Update(Context &ctx, Entity *entity) {
+  auto tc = entity->Get<TransformComponent>();
   auto bc = entity->Get<BrickComponent>();
   auto rc = entity->Get<RectColliderComponent>();
 
   for (const auto &collision : rc->GetCollisions()) {
     if (collision.entity->Contains<BallComponent>()) {
       to_delete.push_back(entity->GetId());
+      SpawnBonus(GetEntityManager(), tc->position);
     }
   }
 }

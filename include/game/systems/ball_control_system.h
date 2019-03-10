@@ -15,5 +15,4 @@ class BallControlSystem : public ISystem {
   void OnUpdate(Context &ctx) override;
   void Update(Context &ctx, Entity* entity) override;
   bool Filter(Entity* entity) const override;
-  void OnPostUpdate(Context &ctx) override;
 };

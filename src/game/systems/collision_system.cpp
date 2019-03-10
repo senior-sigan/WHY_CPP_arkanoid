@@ -4,12 +4,15 @@
 #include <matlib/manifold.h>
 #include <iostream>
 
-void CollisionSystem::Update(Context &ctx, Entity* entity) {
+void CollisionSystem::Update(Context &ctx, Entity *entity) {
   auto tc = entity->Get<TransformComponent>();
   auto cc = entity->Get<RectColliderComponent>();
   auto box = cc->GetAABB(tc->position);
+  if (cc->is_sleeping) {
+    return;
+  }
 
-  GetEntityManager()->ForEach([cc, box, entity](Entity* e) {
+  GetEntityManager()->ForEach([cc, box, entity](Entity *e) {
     if (!e->Contains<RectColliderComponent>() || e->GetId() == entity->GetId()) {
       return;
     }
@@ -24,9 +27,13 @@ void CollisionSystem::Update(Context &ctx, Entity* entity) {
   });
 }
 void CollisionSystem::OnUpdate(Context &ctx) {
-  GetEntityManager()->ForEach([](Entity* e) {
+  GetEntityManager()->ForEach([](Entity *e) {
     if (e->Contains<RectColliderComponent>()) {
       e->Get<RectColliderComponent>()->Clear();
     }
   });
+}
+bool CollisionSystem::Filter(Entity *entity) const {
+  return entity->Contains<TransformComponent>()
+      && entity->Contains<RectColliderComponent>();
 }

@@ -8,6 +8,8 @@
 #include <game/systems/player_control_system.h>
 #include <game/systems/rectangle_render_system.h>
 #include <game/systems/texture_render_system.h>
+#include <game/systems/shredder_system.h>
+#include <game/systems/resize_bonus_system.h>
 
 void GameScene::InitSystems() {
   engine->GetSystemManager()
@@ -16,6 +18,8 @@ void GameScene::InitSystems() {
       ->AddSystem<BallControlSystem>(GetSceneManager())
       ->AddSystem<PhysicsSystem>()
       ->AddSystem<MovementSystem>()
+      ->AddSystem<ShredderSystem>()
+      ->AddSystem<ResizeBonusSystem>()
       ->AddSystem<BricksSystem>(GetSceneManager())
       ->AddSystem<CircleRenderSystem>()
       ->AddSystem<TextureRenderSystem>()

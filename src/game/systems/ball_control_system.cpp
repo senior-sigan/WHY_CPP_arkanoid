@@ -39,22 +39,11 @@ void BallControlSystem::Update(Context &ctx, Entity* entity) {
       }
     }
   }
-
-  if (tc->position.y > (GetDisplayHeight(ctx) - cc->GetSize().y)) {
-    to_delete.push_back(entity->GetId());
-  }
 }
 bool BallControlSystem::Filter(Entity* entity) const {
   return entity->Contains<BallComponent>() && entity->Contains<TransformComponent>() &&
          entity->Contains<MovementComponent>() && entity->Contains<RectColliderComponent>() &&
          entity->Contains<RigidBodyComponent>();
-}
-void BallControlSystem::OnPostUpdate(Context &ctx) {
-  for (auto id : to_delete) {
-    GetEntityManager()->DeleteEntity(id);
-    std::cout << "Delete ball " << id << std::endl;
-  }
-  to_delete.clear();
 }
 void BallControlSystem::OnUpdate(Context &ctx) {
   Counter<BallComponent> counter;
