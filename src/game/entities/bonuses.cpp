@@ -1,12 +1,12 @@
-#include <game/entities/bonuses.h>
-#include <game/components/transform_component.h>
-#include <game/components/rect_collider_component.h>
-#include <game/components/movement_component.h>
 #include <game/components/bonuses/resize_bonus_component.h>
+#include <game/components/movement_component.h>
+#include <game/components/rect_collider_component.h>
 #include <game/components/rectangle_render_component.h>
-#include <whycpp/palette.h>
-#include <lib/ecs/entity_manager.h>
+#include <game/components/transform_component.h>
+#include <game/entities/entities.h>
 #include <lib/ecs/entity.h>
+#include <lib/ecs/entity_manager.h>
+#include <whycpp/palette.h>
 
 void CreateBonus(EntityManager *entityManager, const Vec2 &pos, double power) {
   auto bonus = entityManager->CreateEntity();

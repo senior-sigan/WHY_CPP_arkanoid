@@ -4,7 +4,7 @@
 #include <game/components/rect_collider_component.h>
 #include <game/systems/bricks_system.h>
 #include <game/utils/counter.h>
-#include <game/entities/bonuses.h>
+#include <game/entities/entities.h>
 #include <iostream>
 #include <game/components/transform_component.h>
 #include <cstdlib>
