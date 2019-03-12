@@ -1,5 +1,5 @@
-#include <ecs/entity.h>
-#include <ecs/entity_manager.h>
+#include <lib/ecs/entity.h>
+#include <lib/ecs/entity_manager.h>
 #include <algorithm>
 #include <memory>
 

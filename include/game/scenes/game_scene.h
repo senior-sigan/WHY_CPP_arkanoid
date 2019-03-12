@@ -1,7 +1,7 @@
 #pragma once
 
 #include <game/scenes/ecs_scene.h>
-#include <matlib/vec2.h>
+#include <lib/matlib/vec2.h>
 
 class GameScene : public ECSScene {
   void InitSystems();

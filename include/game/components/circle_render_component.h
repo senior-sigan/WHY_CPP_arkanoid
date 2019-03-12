@@ -1,6 +1,6 @@
 #pragma once
 
-#include <ecs/i_component.h>
+#include <lib/ecs/i_component.h>
 #include <whycpp/color.h>
 class CircleRenderComponent : public IComponent {
  public:

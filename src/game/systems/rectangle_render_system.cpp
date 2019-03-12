@@ -1,4 +1,4 @@
-#include <ecs/entity.h>
+#include <lib/ecs/entity.h>
 #include <game/components/rectangle_render_component.h>
 #include <game/components/transform_component.h>
 #include <game/systems/rectangle_render_system.h>

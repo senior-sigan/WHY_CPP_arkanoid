@@ -1,7 +1,7 @@
-#include <matlib/aabb.h>
-#include <matlib/colliders.h>
-#include <matlib/manifold.h>
-#include <matlib/vec2.h>
+#include <lib/matlib/aabb.h>
+#include <lib/matlib/colliders.h>
+#include <lib/matlib/manifold.h>
+#include <lib/matlib/vec2.h>
 
 bool IsIntersecting(const AABB &a, const AABB &b) {
   if (a.max.x < b.min.x || a.min.x > b.max.x) return false;

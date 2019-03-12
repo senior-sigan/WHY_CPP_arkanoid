@@ -1,4 +1,4 @@
-#include <ecs/entity.h>
+#include <lib/ecs/entity.h>
 #include <game/components/circle_render_component.h>
 #include <game/components/transform_component.h>
 #include <game/systems/circle_render_system.h>

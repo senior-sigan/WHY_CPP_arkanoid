@@ -1,6 +1,6 @@
 #pragma once
 
-#include <matlib/vec2.h>
+#include <lib/matlib/vec2.h>
 #include <ostream>
 
 class AABB {

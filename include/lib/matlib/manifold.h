@@ -1,7 +1,7 @@
 #pragma once
 
-#include <matlib/aabb.h>
-#include <matlib/vec2.h>
+#include <lib/matlib/aabb.h>
+#include <lib/matlib/vec2.h>
 #include <ostream>
 
 class Manifold {

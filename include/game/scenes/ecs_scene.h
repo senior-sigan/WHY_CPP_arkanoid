@@ -1,6 +1,6 @@
 #pragma once
 
-#include <ecs/engine.h>
+#include <lib/ecs/engine.h>
 #include <lib/scene.h>
 #include <memory>
 

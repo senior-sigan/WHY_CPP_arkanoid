@@ -1,7 +1,7 @@
 #pragma once
 
-#include <ecs/entity.h>
-#include <matlib/manifold.h>
+#include <lib/ecs/entity.h>
+#include <lib/matlib/manifold.h>
 
 class Collision {
  public:

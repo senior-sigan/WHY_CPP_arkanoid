@@ -1,10 +1,10 @@
 #pragma once
 
-#include <ecs/entity.h>
-#include <ecs/i_component.h>
-#include <matlib/aabb.h>
-#include <matlib/manifold.h>
-#include <matlib/vec2.h>
+#include <lib/ecs/entity.h>
+#include <lib/ecs/i_component.h>
+#include <lib/matlib/aabb.h>
+#include <lib/matlib/manifold.h>
+#include <lib/matlib/vec2.h>
 #include <set>
 #include <utility>
 #include <game/utils/collision.h>

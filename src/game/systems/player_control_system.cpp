@@ -1,4 +1,4 @@
-#include <ecs/entity.h>
+#include <lib/ecs/entity.h>
 #include <game/components/movement_component.h>
 #include <game/components/player_control_component.h>
 #include <game/components/rect_collider_component.h>

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <ecs/i_component.h>
-#include <matlib/vec2.h>
+#include <lib/ecs/i_component.h>
+#include <lib/matlib/vec2.h>
 
 class MovementComponent : public IComponent {
  public:

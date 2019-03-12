@@ -1,6 +1,6 @@
 #pragma once
 
-#include <ecs/entity.h>
+#include <lib/ecs/entity.h>
 #include <memory>
 
 template<typename T>

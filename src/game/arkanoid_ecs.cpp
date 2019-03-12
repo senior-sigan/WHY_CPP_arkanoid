@@ -1,5 +1,5 @@
 #include <game/arkanoid_ecs.h>
-#include <ecs/engine.h>
+#include <lib/ecs/engine.h>
 #include <game/scenes/fail_scene.h>
 #include <game/scenes/game_scene.h>
 #include <game/scenes/title_scene.h>

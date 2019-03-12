@@ -1,7 +1,7 @@
-#include <ecs/entity_manager.h>
+#include <lib/ecs/entity_manager.h>
 #include <game/systems/collision_system.h>
-#include <matlib/colliders.h>
-#include <matlib/manifold.h>
+#include <lib/matlib/colliders.h>
+#include <lib/matlib/manifold.h>
 #include <iostream>
 
 void CollisionSystem::Update(Context &ctx, Entity *entity) {

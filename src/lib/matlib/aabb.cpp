@@ -1,4 +1,4 @@
-#include <matlib/aabb.h>
+#include <lib/matlib/aabb.h>
 #include <iostream>
 
 Vec2 AABB::Center() const {

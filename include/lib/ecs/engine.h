@@ -1,7 +1,7 @@
 #pragma once
 
-#include <ecs/entity_manager.h>
-#include <ecs/system_manager.h>
+#include <lib/ecs/entity_manager.h>
+#include <lib/ecs/system_manager.h>
 #include <memory>
 #include <vector>
 

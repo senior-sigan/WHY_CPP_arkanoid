@@ -1,4 +1,4 @@
-#include <matlib/vec2.h>
+#include <lib/matlib/vec2.h>
 
 double Distance(const Vec2 &lhs, const Vec2 &rhs) {
   double x1 = lhs.x - rhs.x;

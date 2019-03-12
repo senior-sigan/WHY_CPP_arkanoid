@@ -1,5 +1,5 @@
-#include <ecs/entity.h>
-#include <ecs/entity_manager.h>
+#include <lib/ecs/entity.h>
+#include <lib/ecs/entity_manager.h>
 #include <game/systems/shredder_system.h>
 #include <game/components/transform_component.h>
 #include <whycpp/drawing.h>

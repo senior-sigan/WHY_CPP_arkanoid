@@ -1,6 +1,6 @@
 #pragma once
 
-#include <ecs/i_component.h>
+#include <lib/ecs/i_component.h>
 #include <whycpp/buttons.h>
 
 class PlayerControlComponent : public IComponent {

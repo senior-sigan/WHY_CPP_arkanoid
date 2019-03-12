@@ -1,5 +1,5 @@
-#include <ecs/entity_manager.h>
-#include <ecs/i_system.h>
+#include <lib/ecs/entity_manager.h>
+#include <lib/ecs/i_system.h>
 
 void ISystem::Update(Context &ctx) {
   OnUpdate(ctx);

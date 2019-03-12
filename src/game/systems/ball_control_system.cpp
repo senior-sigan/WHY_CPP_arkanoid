@@ -1,5 +1,5 @@
-#include <ecs/entity.h>
-#include <ecs/entity_manager.h>
+#include <lib/ecs/entity.h>
+#include <lib/ecs/entity_manager.h>
 #include <game/components/ball_component.h>
 #include <game/components/movement_component.h>
 #include <game/components/rect_collider_component.h>
@@ -7,7 +7,7 @@
 #include <game/components/transform_component.h>
 #include <game/systems/ball_control_system.h>
 #include <game/utils/counter.h>
-#include <matlib/numbers.h>
+#include <lib/matlib/numbers.h>
 #include <whycpp/drawing.h>
 #include <whycpp/lifecycle.h>
 

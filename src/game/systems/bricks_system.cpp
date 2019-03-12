@@ -1,4 +1,4 @@
-#include <ecs/entity_manager.h>
+#include <lib/ecs/entity_manager.h>
 #include <game/components/ball_component.h>
 #include <game/components/brick_component.h>
 #include <game/components/rect_collider_component.h>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <ecs/i_system.h>
+#include <lib/ecs/i_system.h>
 #include <lib/scene_manager.h>
 #include <vector>
 

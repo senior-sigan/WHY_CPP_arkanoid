@@ -5,8 +5,8 @@
 #include <game/components/bonuses/resize_bonus_component.h>
 #include <game/components/rectangle_render_component.h>
 #include <whycpp/palette.h>
-#include <ecs/entity_manager.h>
-#include <ecs/entity.h>
+#include <lib/ecs/entity_manager.h>
+#include <lib/ecs/entity.h>
 
 void CreateBonus(EntityManager *entityManager, const Vec2 &pos, double power) {
   auto bonus = entityManager->CreateEntity();

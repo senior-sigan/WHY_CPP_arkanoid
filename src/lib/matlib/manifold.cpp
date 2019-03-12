@@ -1,4 +1,4 @@
-#include <matlib/manifold.h>
+#include <lib/matlib/manifold.h>
 
 Manifold::Manifold(const Vec2 &overlap, const Vec2 &normal, const double penetration, const bool intersecting,
                    const Vec2 vec)

@@ -1,5 +1,5 @@
 #pragma once
 
-#include <ecs/i_component.h>
+#include <lib/ecs/i_component.h>
 
 class PlatformComponent : public IComponent {};
