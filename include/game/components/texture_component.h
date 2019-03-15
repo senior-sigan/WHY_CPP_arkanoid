@@ -29,6 +29,6 @@ class TextureComponent : public IComponent {
   }
 
   RGBA Get(int x, int y) const {
-    return sprite.at(width * y + x);
+    return sprite.at(static_cast<unsigned long>(width * y + x));
   }
 };

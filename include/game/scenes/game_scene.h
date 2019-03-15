@@ -8,6 +8,7 @@ class GameScene : public ECSScene {
   void InitEntities();
   void CreateBricks();
   void CreateBorders();
+
  public:
   explicit GameScene(Context& ctx);
   void OnCreate() override;

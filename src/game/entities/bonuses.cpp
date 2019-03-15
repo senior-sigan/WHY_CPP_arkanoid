@@ -8,8 +8,8 @@
 #include <lib/ecs/entity_manager.h>
 #include <whycpp/palette.h>
 
-void CreateBonus(EntityManager *entityManager, const Vec2 &pos, double power) {
-  auto bonus = entityManager->CreateEntity();
+void CreateBonus(EntityManager *entity_manager, const Vec2 &pos, double power) {
+  auto bonus = entity_manager->CreateEntity();
   auto size = Vec2(10, 10);
   auto speed = Vec2(200, 200);
   auto dir = DownVec2;

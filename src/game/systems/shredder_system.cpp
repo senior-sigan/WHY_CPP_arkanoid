@@ -1,9 +1,9 @@
+#include <game/components/rect_collider_component.h>
+#include <game/components/transform_component.h>
+#include <game/systems/shredder_system.h>
 #include <lib/ecs/entity.h>
 #include <lib/ecs/entity_manager.h>
-#include <game/systems/shredder_system.h>
-#include <game/components/transform_component.h>
 #include <whycpp/drawing.h>
-#include <game/components/rect_collider_component.h>
 
 void ShredderSystem::Update(Context &ctx, Entity *entity) {
   auto tc = entity->Get<TransformComponent>();

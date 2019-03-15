@@ -12,7 +12,7 @@ class BricksSystem : public ISystem {
   explicit BricksSystem(SceneManager *sceneManager);
 
  protected:
-  bool Filter(Entity* entity) const override;
-  void Update(Context &ctx, Entity* entity) override;
+  bool Filter(Entity *entity) const override;
+  void Update(Context &ctx, Entity *entity) override;
   void OnPostUpdate(Context &ctx) override;
 };

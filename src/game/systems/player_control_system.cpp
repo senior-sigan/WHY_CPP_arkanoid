@@ -1,9 +1,9 @@
-#include <lib/ecs/entity.h>
 #include <game/components/movement_component.h>
 #include <game/components/player_control_component.h>
 #include <game/components/rect_collider_component.h>
 #include <game/components/transform_component.h>
 #include <game/systems/player_control_system.h>
+#include <lib/ecs/entity.h>
 #include <whycpp/drawing.h>
 #include <whycpp/input.h>
 #include <iostream>

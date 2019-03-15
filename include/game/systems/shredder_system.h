@@ -3,7 +3,7 @@
 #include <lib/ecs/i_system.h>
 #include <vector>
 
-class ShredderSystem: public ISystem {
+class ShredderSystem : public ISystem {
   std::vector<size_t> to_delete{};
 
  protected:

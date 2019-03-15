@@ -18,4 +18,4 @@ void FailScene::OnUpdate() {
   }
 }
 void FailScene::OnDispose() {}
-FailScene::FailScene(Context & ctx):ECSScene(ctx){}
+FailScene::FailScene(Context& ctx) : ECSScene(ctx) {}

@@ -1,5 +1,3 @@
-#include <lib/ecs/entity.h>
-#include <lib/ecs/entity_manager.h>
 #include <game/components/ball_component.h>
 #include <game/components/movement_component.h>
 #include <game/components/rect_collider_component.h>
@@ -7,6 +5,8 @@
 #include <game/components/transform_component.h>
 #include <game/systems/ball_control_system.h>
 #include <game/utils/counter.h>
+#include <lib/ecs/entity.h>
+#include <lib/ecs/entity_manager.h>
 #include <lib/matlib/numbers.h>
 #include <whycpp/drawing.h>
 #include <whycpp/lifecycle.h>
@@ -14,7 +14,7 @@
 #include <game/components/platform_component.h>
 #include <iostream>
 
-void BallControlSystem::Update(Context &ctx, Entity* entity) {
+void BallControlSystem::Update(Context &ctx, Entity *entity) {
   auto tc = entity->Get<TransformComponent>();
   auto mc = entity->Get<MovementComponent>();
   auto rc = entity->Get<RigidBodyComponent>();
@@ -40,7 +40,7 @@ void BallControlSystem::Update(Context &ctx, Entity* entity) {
     }
   }
 }
-bool BallControlSystem::Filter(Entity* entity) const {
+bool BallControlSystem::Filter(Entity *entity) const {
   return entity->Contains<BallComponent>() && entity->Contains<TransformComponent>() &&
          entity->Contains<MovementComponent>() && entity->Contains<RectColliderComponent>() &&
          entity->Contains<RigidBodyComponent>();

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <game/utils/collision.h>
 #include <lib/ecs/entity.h>
 #include <lib/ecs/i_component.h>
 #include <lib/matlib/aabb.h>
@@ -7,19 +8,17 @@
 #include <lib/matlib/vec2.h>
 #include <set>
 #include <utility>
-#include <game/utils/collision.h>
 
 class RectColliderComponent : public IComponent {
   std::set<Collision> collisions{};
+
  public:
   Vec2 size;
   Vec2 offset;
   bool is_trigger;
   bool is_sleeping;
 
-  explicit RectColliderComponent(const Vec2 &size,
-                                 const Vec2 &offset = ZeroVec2,
-                                 bool is_trigger = false,
+  explicit RectColliderComponent(const Vec2 &size, const Vec2 &offset = ZeroVec2, bool is_trigger = false,
                                  bool is_sleeping = false)
       : size(size), offset(offset), is_trigger(is_trigger), is_sleeping(is_sleeping) {}
 

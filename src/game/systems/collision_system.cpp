@@ -1,5 +1,5 @@
-#include <lib/ecs/entity_manager.h>
 #include <game/systems/collision_system.h>
+#include <lib/ecs/entity_manager.h>
 #include <lib/matlib/colliders.h>
 #include <lib/matlib/manifold.h>
 #include <iostream>
@@ -34,6 +34,5 @@ void CollisionSystem::OnUpdate(Context &ctx) {
   });
 }
 bool CollisionSystem::Filter(Entity *entity) const {
-  return entity->Contains<TransformComponent>()
-      && entity->Contains<RectColliderComponent>();
+  return entity->Contains<TransformComponent>() && entity->Contains<RectColliderComponent>();
 }

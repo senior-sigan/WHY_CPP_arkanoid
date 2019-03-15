@@ -6,8 +6,8 @@
 #include <lib/matlib/vec2.h>
 #include <whycpp/palette.h>
 
-void CreateBrick(EntityManager *entityManager, const Vec2 &pos, const Vec2 &size) {
-  auto brick = entityManager->CreateEntity();
+void CreateBrick(EntityManager *entity_manager, const Vec2 &pos, const Vec2 &size) {
+  auto brick = entity_manager->CreateEntity();
   brick->SetTag("brick");
   brick->Add<TransformComponent>(pos);
   brick->Add<RectangleRenderComponent>(size, PALETTE[15]);

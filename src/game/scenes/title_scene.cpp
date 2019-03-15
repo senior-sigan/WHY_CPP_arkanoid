@@ -18,4 +18,4 @@ void TitleScene::OnUpdate() {
   }
 }
 void TitleScene::OnDispose() {}
-TitleScene::TitleScene(Context & ctx):ECSScene(ctx){}
+TitleScene::TitleScene(Context& ctx) : ECSScene(ctx) {}

@@ -1,10 +1,10 @@
-#include <lib/ecs/entity.h>
 #include <game/components/texture_component.h>
 #include <game/components/transform_component.h>
 #include <game/systems/texture_render_system.h>
+#include <lib/ecs/entity.h>
 #include <whycpp/drawing.h>
 
-void TextureRenderSystem::Update(Context &ctx, Entity* entity) {
+void TextureRenderSystem::Update(Context& ctx, Entity* entity) {
   auto texture = entity->Get<TextureComponent>();
   auto transform = entity->Get<TransformComponent>();
 

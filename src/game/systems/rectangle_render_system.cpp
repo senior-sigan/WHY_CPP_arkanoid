@@ -1,10 +1,10 @@
-#include <lib/ecs/entity.h>
 #include <game/components/rectangle_render_component.h>
 #include <game/components/transform_component.h>
 #include <game/systems/rectangle_render_system.h>
+#include <lib/ecs/entity.h>
 #include <whycpp/drawing.h>
 
-void RectangleRenderSystem::Update(Context &ctx, Entity* entity) {
+void RectangleRenderSystem::Update(Context& ctx, Entity* entity) {
   auto rect = entity->Get<RectangleRenderComponent>();
   auto transform = entity->Get<TransformComponent>();
 

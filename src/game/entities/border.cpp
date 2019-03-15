@@ -5,8 +5,8 @@
 #include <lib/matlib/vec2.h>
 #include <whycpp/palette.h>
 
-void CreateBorder(EntityManager *entityManager, const Vec2 &size, const Vec2 &pos) {
-  auto border = entityManager->CreateEntity();
+void CreateBorder(EntityManager *entity_manager, const Vec2 &size, const Vec2 &pos) {
+  auto border = entity_manager->CreateEntity();
   border->Add<TransformComponent>(pos);
   border->Add<RectangleRenderComponent>(size, PALETTE[13]);
   border->Add<RectColliderComponent>(size);

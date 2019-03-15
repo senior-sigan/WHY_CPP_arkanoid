@@ -1,7 +1,7 @@
 #include <lib/ecs/entity_manager.h>
 #include <lib/ecs/i_system.h>
 
-void ISystem::Update(Context &ctx) {
+void ISystem::Update(Context& ctx) {
   OnUpdate(ctx);
   entityManager->ForEach([this, &ctx](Entity* entity) {
     if (Filter(entity)) Update(ctx, entity);

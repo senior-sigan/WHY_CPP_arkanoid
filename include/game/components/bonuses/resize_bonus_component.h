@@ -5,7 +5,7 @@
 
 class Entity;
 
-class ResizeBonusComponent: public IComponent {
+class ResizeBonusComponent : public IComponent {
  public:
   double power;
 

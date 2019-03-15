@@ -11,13 +11,13 @@ class ISystem {
   EntityManager* entityManager{};
 
  public:
-  void Update(Context &ctx);
+  void Update(Context& ctx);
   virtual ~ISystem() = default;
 
  protected:
-  virtual void OnUpdate(Context &ctx){};
-  virtual void Update(Context &ctx, Entity* entity){};
-  virtual void OnPostUpdate(Context &ctx){};
+  virtual void OnUpdate(Context& ctx){};
+  virtual void Update(Context& ctx, Entity* entity){};
+  virtual void OnPostUpdate(Context& ctx){};
   virtual bool Filter(Entity* entity) const;
 
   EntityManager* GetEntityManager();

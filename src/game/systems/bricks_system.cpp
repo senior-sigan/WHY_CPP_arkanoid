@@ -1,13 +1,13 @@
-#include <lib/ecs/entity_manager.h>
 #include <game/components/ball_component.h>
 #include <game/components/brick_component.h>
 #include <game/components/rect_collider_component.h>
+#include <game/components/transform_component.h>
+#include <game/entities/entities.h>
 #include <game/systems/bricks_system.h>
 #include <game/utils/counter.h>
-#include <game/entities/entities.h>
-#include <iostream>
-#include <game/components/transform_component.h>
+#include <lib/ecs/entity_manager.h>
 #include <cstdlib>
+#include <iostream>
 
 int rnd(int bound) {
   return std::rand() % bound;
@@ -26,9 +26,8 @@ void SpawnBonus(EntityManager *manager, const Vec2 &pos) {
 };
 
 bool BricksSystem::Filter(Entity *entity) const {
-  return entity->Contains<BrickComponent>()
-      && entity->Contains<RectColliderComponent>()
-      && entity->Contains<TransformComponent>();
+  return entity->Contains<BrickComponent>() && entity->Contains<RectColliderComponent>() &&
+         entity->Contains<TransformComponent>();
 }
 void BricksSystem::Update(Context &ctx, Entity *entity) {
   auto tc = entity->Get<TransformComponent>();

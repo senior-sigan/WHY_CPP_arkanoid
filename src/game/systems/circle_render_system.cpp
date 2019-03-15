@@ -1,10 +1,10 @@
-#include <lib/ecs/entity.h>
 #include <game/components/circle_render_component.h>
 #include <game/components/transform_component.h>
 #include <game/systems/circle_render_system.h>
+#include <lib/ecs/entity.h>
 #include <whycpp/drawing.h>
 
-void CircleRenderSystem::Update(Context &ctx, Entity* entity) {
+void CircleRenderSystem::Update(Context& ctx, Entity* entity) {
   auto obj = entity->Get<CircleRenderComponent>();
   auto transform = entity->Get<TransformComponent>();
 

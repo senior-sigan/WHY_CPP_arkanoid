@@ -9,9 +9,9 @@
 #include <lib/ecs/entity_manager.h>
 #include <whycpp/palette.h>
 
-void CreatePlatform(EntityManager *entityManager, const Vec2 &platform_pos, const Vec2 &platform_size) {
+void CreatePlatform(EntityManager *entity_manager, const Vec2 &platform_pos, const Vec2 &platform_size) {
   auto platform_speed = 290;
-  auto platform = entityManager->CreateEntity();
+  auto platform = entity_manager->CreateEntity();
   platform->SetTag("platform");
   platform->Add<PlayerControlComponent>();
   platform->Add<PlatformComponent>();
