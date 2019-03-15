@@ -1,5 +1,7 @@
 all: clean reload compile start
 
+web: clean-web reload-web compile-web start-web
+
 clean:
 	rm -rf cmake-build-debug
 
@@ -14,3 +16,18 @@ compile:
 
 start:
 	cd cmake-build-debug && ./game
+
+clean-web:
+	rm -rf cmake-build-debug-web
+
+dir-web:
+	mkdir -p cmake-build-debug-web
+
+reload-web: dir-web
+	cd cmake-build-debug-web && emcmake cmake ..
+
+compile-web:
+	cd cmake-build-debug-web && make -j4
+
+start-web:
+	cd cmake-build-debug-web && python -m http.server
