@@ -7,10 +7,10 @@
 
 void NextLevelScene::OnCreate() {}
 void NextLevelScene::OnUpdate() {
-  DrawClearScreen(ctx, PALETTE[11]);
+  DrawClearScreen(ctx, PALETTE[3]);
   auto x = 1;
   auto y = GetDisplayHeight(ctx) / 2;
-  Print(ctx, "NEXT LEVEL\nSPACE TO START", x, y, PALETTE[0], 2);
+  Print(ctx, "NEXT LEVEL\nSPACE TO START", x, y, PALETTE[7], 2);
 
   if (IsClicked(ctx, Button::KEY_SPACE) || IsClicked(ctx, Button::MOUSE_BUTTON_LEFT)) {
     GetSceneManager()->NextScene();

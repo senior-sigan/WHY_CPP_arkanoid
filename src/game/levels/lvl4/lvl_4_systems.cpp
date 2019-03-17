@@ -1,4 +1,4 @@
-#include <game/levels/lvl_1_creator.h>
+#include <game/levels/lvl_4_creator.h>
 
 #include <game/scenes/game_scene.h>
 #include <game/systems/ball_control_system.h>
@@ -16,7 +16,7 @@
 #include <lib/ecs/engine.h>
 #include <lib/scene.h>
 
-void Lvl1Creator::InitSystems() {
+void Lvl4Creator::InitSystems() {
   engine->GetSystemManager()
       ->AddSystem<CheatSystem>(scene_manager_)
       ->AddSystem<CollisionSystem>()

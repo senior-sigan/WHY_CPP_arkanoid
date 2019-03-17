@@ -1,9 +1,9 @@
 #include <game/levels/lvl_2_creator.h>
 
-#include <lib/ecs/engine.h>
 #include <game/scenes/game_scene.h>
 #include <game/systems/ball_control_system.h>
 #include <game/systems/bricks_system.h>
+#include <game/systems/cheat_system.h>
 #include <game/systems/circle_render_system.h>
 #include <game/systems/collision_system.h>
 #include <game/systems/movement_system.h>
@@ -13,10 +13,12 @@
 #include <game/systems/resize_bonus_system.h>
 #include <game/systems/shredder_system.h>
 #include <game/systems/texture_render_system.h>
+#include <lib/ecs/engine.h>
 #include <lib/scene.h>
 
 void Lvl2Creator::InitSystems() {
   engine->GetSystemManager()
+      ->AddSystem<CheatSystem>(scene_manager_)
       ->AddSystem<CollisionSystem>()
       ->AddSystem<PlayerControlSystem>()
       ->AddSystem<BallControlSystem>(scene_manager_)
