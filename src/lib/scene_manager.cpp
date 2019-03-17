@@ -26,10 +26,21 @@ void SceneManager::OnDispose() {
   scenes.clear();
 }
 void SceneManager::SetScene(size_t id) {
+  std::cout << "SetScene(" << id << ")" << std::endl;
   if (id < scenes.size()) {
     prev_scene = current_scene;
     current_scene = id;
   }
+}
+void SceneManager::SetScene(const std::string& name) {
+  std::cout << "SetScene(" << name << ")" << std::endl;
+  if (named_scenes.count(name) == 0) {
+    std::cout << "There is no scene '" << name << "'. Going to the first scene." << std::endl;
+    SetScene(0);
+    return;
+  }
+  auto id = named_scenes.at(name);
+  SetScene(id);
 }
 void SceneManager::NextScene() {
   current_scene++;

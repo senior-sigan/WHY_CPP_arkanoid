@@ -5,7 +5,7 @@
 #include <memory>
 
 class ArkanoidECS : public ApplicationListener {
-  SceneManager scene_manager;
+  SceneManager scene_manager{};
 
  public:
   void OnCreate(Context &ctx) override;

@@ -6,7 +6,7 @@ class SceneManager;
 
 class IScene {
   friend class SceneManager;
-  SceneManager* sceneManager = nullptr;
+  SceneManager* sceneManager; // YES, this field should not be initialized
 
  public:
   SceneManager* GetSceneManager() const;
