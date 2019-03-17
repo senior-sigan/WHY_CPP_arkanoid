@@ -8,6 +8,19 @@
 #include <whycpp/input.h>
 #include <iostream>
 
+void MoveLeft(TransformComponent* tc, MovementComponent* mc, PlayerControlComponent* pcc) {
+  if (tc->position.x > pcc->border_size) {
+    mc->direction = LeftVec2;
+  }
+}
+
+void MoveRight(Context& ctx, TransformComponent* tc, MovementComponent* mc, PlayerControlComponent* pcc,
+               RectColliderComponent* rcc) {
+  if (tc->position.x < GetDisplayWidth(ctx) - rcc->GetSize().x - pcc->border_size) {
+    mc->direction = RightVec2;
+  }
+}
+
 void PlayerControlSystem::Update(Context& ctx, Entity* entity) {
   auto tc = entity->Get<TransformComponent>();
   auto pcc = entity->Get<PlayerControlComponent>();
@@ -16,20 +29,23 @@ void PlayerControlSystem::Update(Context& ctx, Entity* entity) {
 
   mc->direction = ZeroVec2;
 
-  if (IsPressed(ctx, pcc->left) && tc->position.x > pcc->border_size) {
-    mc->direction = LeftVec2;
+  if (IsPressed(ctx, pcc->left)) {
+    MoveLeft(tc.get(), mc.get(), pcc.get());
   }
 
-  if (IsPressed(ctx, pcc->right) && tc->position.x < GetDisplayWidth(ctx) - rcc->GetSize().x - pcc->border_size) {
-    mc->direction = RightVec2;
+  if (IsPressed(ctx, pcc->right)) {
+    MoveRight(ctx, tc.get(), mc.get(), pcc.get(), rcc.get());
   }
 
-  if (IsPressed(ctx, pcc->up) && tc->position.y > pcc->border_size) {
-    mc->direction = UpVec2;
-  }
-
-  if (IsPressed(ctx, pcc->down) && tc->position.y < GetDisplayHeight(ctx) - rcc->GetSize().y) {
-    mc->direction = DownVec2;
+  // Controls for touch screens
+  if (IsPressed(ctx, pcc->mouse)) {
+    int x, y;
+    GetMouse(ctx, x, y);
+    if (x < GetDisplayWidth(ctx) / 2) {
+      MoveLeft(tc.get(), mc.get(), pcc.get());
+    } else {
+      MoveRight(ctx, tc.get(), mc.get(), pcc.get(), rcc.get());
+    }
   }
 }
 bool PlayerControlSystem::Filter(Entity* entity) const {

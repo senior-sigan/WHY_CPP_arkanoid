@@ -13,7 +13,7 @@ void WinScene::OnUpdate() {
   auto y = GetDisplayHeight(ctx) / 2;
   Print(ctx, "!!WIN!!\nSPACE TO RESTART", x, y, PALETTE[0], 2);
 
-  if (IsClicked(ctx, Button::KEY_SPACE)) {
+  if (IsClicked(ctx, Button::KEY_SPACE) || IsClicked(ctx, Button::MOUSE_BUTTON_LEFT)) {
     GetSceneManager()->SetScene(0);
   }
 }

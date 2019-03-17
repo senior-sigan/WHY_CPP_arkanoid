@@ -13,7 +13,7 @@ void TitleScene::OnUpdate() {
   auto y = GetDisplayHeight(ctx) / 2;
   Print(ctx, "PRESS SPACE\nTO START", x, y, PALETTE[6], 2);
 
-  if (IsClicked(ctx, Button::KEY_SPACE)) {
+  if (IsClicked(ctx, Button::KEY_SPACE) || IsClicked(ctx, Button::MOUSE_BUTTON_LEFT)) {
     GetSceneManager()->SetScene(1);
   }
 }
