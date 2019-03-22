@@ -2,6 +2,7 @@
 
 #include <cmath>
 #include <ostream>
+#include <tuple>
 
 class Vec2 {
  public:
