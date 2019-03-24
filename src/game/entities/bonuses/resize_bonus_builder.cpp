@@ -3,12 +3,18 @@
 #include <game/components/rect_collider_component.h>
 #include <game/components/rectangle_render_component.h>
 #include <game/components/transform_component.h>
-#include <game/entities/entities.h>
-#include <lib/ecs/entity.h>
-#include <lib/ecs/entity_manager.h>
+#include <game/entities/bonuses/resize_bonus_builder.h>
 #include <whycpp/palette.h>
 
-void CreateBonus(EntityManager *entity_manager, const Vec2 &pos, double power) {
+void ResizeBonusBuilder::build(EntityManager* entity_manager, const Vec2& pos) {
+  double power;
+  if (random.NextInt(0, 2) == 0) {
+    power = 0.5;
+  } else {
+    power = 1.25;
+  }
+
+
   auto bonus = entity_manager->CreateEntity();
   auto size = Vec2(13, 6);
   auto speed = Vec2(200, 200);

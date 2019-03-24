@@ -9,22 +9,6 @@
 #include <cstdlib>
 #include <iostream>
 
-int rnd(int bound) {
-  return std::rand() % bound;
-}
-
-void SpawnBonus(EntityManager *manager, const Vec2 &pos) {
-  if (rnd(2) == 0) {
-    double power;
-    if (rnd(2) == 0) {
-      power = 0.5;
-    } else {
-      power = 1.25;
-    }
-    CreateBonus(manager, pos, power);
-  }
-};
-
 bool BricksSystem::Filter(Entity *entity) const {
   return entity->Contains<BrickComponent>() && entity->Contains<RectColliderComponent>() &&
          entity->Contains<TransformComponent>();
@@ -37,7 +21,7 @@ void BricksSystem::Update(Context &ctx, Entity *entity) {
   for (const auto &collision : rc->GetCollisions()) {
     if (collision.entity->Contains<BallComponent>()) {
       to_delete.push_back(entity->GetId());
-      SpawnBonus(GetEntityManager(), tc->position);
+      bonus_spawner_.spawn(GetEntityManager(), tc->position);
     }
   }
 }
@@ -54,4 +38,4 @@ void BricksSystem::OnPostUpdate(Context &ctx) {
     sceneManager->NextScene();
   }
 }
-BricksSystem::BricksSystem(SceneManager *sceneManager) : sceneManager(sceneManager) {}
+BricksSystem::BricksSystem(SceneManager *sceneManager): sceneManager(sceneManager) {}
