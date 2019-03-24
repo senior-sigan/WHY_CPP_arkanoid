@@ -6,11 +6,21 @@
 #include <lib/matlib/vec2.h>
 #include <whycpp/palette.h>
 
-void CreateBrick(EntityManager *entity_manager, const Vec2 &pos, const Vec2 &size) {
+RGBA GetColorForHp(int hp) {
+  if (hp == 1) {
+    return RGBA{255, 204, 170, 255};
+  } else if (hp == 2) {
+    return RGBA{200, 160, 110, 255};
+  } else {
+    return RGBA{131, 118, 156, 255};
+  }
+}
+
+void CreateBrick(EntityManager *entity_manager, const Vec2 &pos, const Vec2 &size, int hp) {
   auto brick = entity_manager->CreateEntity();
   brick->SetTag("brick");
   brick->Add<TransformComponent>(pos);
-  brick->Add<RectangleRenderComponent>(size, PALETTE[15]);
+  brick->Add<RectangleRenderComponent>(size, GetColorForHp(hp));
   brick->Add<RectColliderComponent>(size);
-  brick->Add<BrickComponent>();
+  brick->Add<BrickComponent>(hp);
 }

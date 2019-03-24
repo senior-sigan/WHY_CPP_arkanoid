@@ -18,7 +18,11 @@ void Lvl4Creator::CreateBricks() {
   for (int i = 0; i < 13; i += 2) {
     for (int j = 1; j < 15; j++) {
       auto size = Vec2(15, 8);
-      CreateBrick(engine->GetEntityManager(), Vec2(8 + i * (size.x + 1), 12 + j * (size.y + 1)), size);
+      auto hp = 1;
+      if (i % 3 == 0) {
+        hp = 4;
+      }
+      CreateBrick(engine->GetEntityManager(), Vec2(8 + i * (size.x + 1), 12 + j * (size.y + 1)), size, hp);
     }
   }
 }
