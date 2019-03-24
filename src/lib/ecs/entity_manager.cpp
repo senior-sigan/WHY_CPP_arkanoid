@@ -20,3 +20,10 @@ EntityManager::~EntityManager() {
 void EntityManager::RemoveEntities() {
   entities.clear();
 }
+Entity* EntityManager::FindFirstByTag(const std::string& tag){
+  for (auto& entity : entities) {
+    // TODO: it would be better to create some index for O(1) lookup.
+    if (entity->tag == tag) return entity.get();
+  }
+  return nullptr;
+}

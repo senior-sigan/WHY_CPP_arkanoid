@@ -21,6 +21,7 @@ class EntityManager {
       func(entity.get());
     }
   }
+  Entity* FindFirstByTag(const std::string& tag);
   Entity* CreateEntity();
   void DeleteEntity(size_t id);
   void RemoveEntities();

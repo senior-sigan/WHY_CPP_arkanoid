@@ -7,6 +7,7 @@
 #include <game/systems/circle_render_system.h>
 #include <game/systems/collision_system.h>
 #include <game/systems/movement_system.h>
+#include <game/systems/multi_ball_bonus_system.h>
 #include <game/systems/physics_system.h>
 #include <game/systems/player_control_system.h>
 #include <game/systems/rectangle_render_system.h>
@@ -25,6 +26,7 @@ void Lvl1Creator::InitSystems() {
       ->AddSystem<PhysicsSystem>()
       ->AddSystem<MovementSystem>()
       ->AddSystem<ShredderSystem>()
+      ->AddSystem<MultiBallBonusSystem>()
       ->AddSystem<ResizeBonusSystem>()
       ->AddSystem<BricksSystem>(scene_manager_)
       ->AddSystem<CircleRenderSystem>()
