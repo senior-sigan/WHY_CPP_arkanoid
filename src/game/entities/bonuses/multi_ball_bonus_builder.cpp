@@ -1,3 +1,4 @@
+#include <game/components/audio_component.h>
 #include <game/components/bonuses/multi_ball_bonus_component.h>
 #include <game/components/movement_component.h>
 #include <game/components/rect_collider_component.h>
@@ -15,6 +16,7 @@ void MultiBallBonusBuilder::build(EntityManager* entity_manager, const Vec2& pos
 
   auto color = PALETTE[9];
 
+  bonus->Add<AudioComponent>("bonus");
   bonus->Add<TransformComponent>(pos);
   bonus->Add<RectColliderComponent>(size);
   bonus->Add<MovementComponent>(speed, dir);

@@ -1,3 +1,4 @@
+#include <game/components/audio_component.h>
 #include <game/components/bonuses/multi_ball_bonus_component.h>
 #include <game/components/movement_component.h>
 #include <game/components/rect_collider_component.h>
@@ -7,7 +8,8 @@
 #include <lib/ecs/entity.h>
 #include <lib/ecs/entity_manager.h>
 
-void ApplyBonus(MultiBallBonusComponent* bc, EntityManager* entity_manager, Entity* platform) {
+void ApplyBonus(Entity* bonus, EntityManager* entity_manager, Entity* platform) {
+  auto bc = bonus->Get<MultiBallBonusComponent>();
   auto ball = entity_manager->FindFirstByTag("ball");
   auto pos = ball->Get<TransformComponent>()->position;
   auto dir = ball->Get<MovementComponent>()->direction;
@@ -15,6 +17,8 @@ void ApplyBonus(MultiBallBonusComponent* bc, EntityManager* entity_manager, Enti
   for (int i = 1; i < bc->multiplier_; i++) {
     CreateBall(entity_manager, pos, dir * Vec2(-1, 1));
   }
+
+  bonus->Get<AudioComponent>()->Play();
 }
 
 void MultiBallBonusSystem::Update(Context& ctx, Entity* entity) {
@@ -25,7 +29,7 @@ void MultiBallBonusSystem::Update(Context& ctx, Entity* entity) {
     if (collision.entity->GetTag() != "platform") continue;
     rc->is_sleeping = true;  // TODO: it'd be better to remove this object immediately
 
-    ApplyBonus(bc.get(), GetEntityManager(), collision.entity);
+    ApplyBonus(entity, GetEntityManager(), collision.entity);
   }
 }
 bool MultiBallBonusSystem::Filter(Entity* entity) const {

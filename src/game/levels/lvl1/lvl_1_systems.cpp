@@ -1,6 +1,7 @@
 #include <game/levels/lvl_1_creator.h>
 
 #include <game/scenes/game_scene.h>
+#include <game/systems/audio_system.h>
 #include <game/systems/ball_control_system.h>
 #include <game/systems/bricks_system.h>
 #include <game/systems/cheat_system.h>
@@ -19,6 +20,7 @@
 
 void Lvl1Creator::InitSystems() {
   engine->GetSystemManager()
+      ->AddSystem<AudioSystem>()
       ->AddSystem<CheatSystem>(scene_manager_)
       ->AddSystem<CollisionSystem>()
       ->AddSystem<PlayerControlSystem>()

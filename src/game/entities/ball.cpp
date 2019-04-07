@@ -1,13 +1,14 @@
+#include <game/components/audio_component.h>
 #include <game/components/ball_component.h>
 #include <game/components/circle_render_component.h>
 #include <game/components/movement_component.h>
 #include <game/components/rect_collider_component.h>
 #include <game/components/rigid_body_component.h>
 #include <game/components/transform_component.h>
+#include <game/entities/entities.h>
 #include <lib/ecs/entity_manager.h>
 #include <lib/matlib/vec2.h>
 #include <whycpp/palette.h>
-#include <game/entities/entities.h>
 
 void CreateBall(EntityManager *entity_manager, const Vec2 &platform_pos, const Vec2 &platform_size) {
   auto br = 3.0;
@@ -24,6 +25,7 @@ void CreateBallAt(EntityManager *entity_manager, const Vec2 &ball_pos, const Vec
 
 
   ball->SetTag("ball");
+  ball->Add<AudioComponent>("platform");
   ball->Add<TransformComponent>(ball_pos);
   ball->Add<RectColliderComponent>(ball_size);
   ball->Add<MovementComponent>(Vec2(ball_speed, ball_speed), dir);

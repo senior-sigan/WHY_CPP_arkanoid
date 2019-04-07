@@ -12,6 +12,7 @@ void Lvl3Creator::InitEntities() {
 
   CreateBricks();
   CreateBorders();
+  CreateMusic(engine->GetEntityManager(), "music3");
 }
 
 void Lvl3Creator::CreateBricks() {

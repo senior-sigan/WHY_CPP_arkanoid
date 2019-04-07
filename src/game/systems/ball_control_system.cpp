@@ -11,6 +11,7 @@
 #include <whycpp/drawing.h>
 #include <whycpp/lifecycle.h>
 
+#include <game/components/audio_component.h>
 #include <game/components/platform_component.h>
 #include <iostream>
 
@@ -19,9 +20,13 @@ void BallControlSystem::Update(Context &ctx, Entity *entity) {
   auto mc = entity->Get<MovementComponent>();
   auto rc = entity->Get<RigidBodyComponent>();
   auto cc = entity->Get<RectColliderComponent>();
+  auto ac = entity->Get<AudioComponent>();
 
   if (cc->AnyCollisions()) {
     for (const auto &collision : cc->GetCollisions()) {
+      ac->Play();
+
+
       auto v = collision.manifold.normal;
       if (v.x > 0 || v.x < 0) {
         mc->direction.x *= -1;
