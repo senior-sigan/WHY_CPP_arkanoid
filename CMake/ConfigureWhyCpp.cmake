@@ -12,9 +12,8 @@ if(result)
     message(FATAL_ERROR "Build step for whycpp failed: ${result}")
 endif()
 
-
-add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/whycpp-src
+add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/whycpp-src/whycpp
         ${CMAKE_CURRENT_BINARY_DIR}/whycpp-build
         EXCLUDE_FROM_ALL)
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR}/whycpp-src/include)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/whycpp-src/whycpp/include)
