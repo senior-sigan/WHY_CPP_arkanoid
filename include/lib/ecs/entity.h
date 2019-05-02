@@ -44,6 +44,11 @@ class Entity {
     return id;
   }
 
+  template<typename Component>
+  void Delete() {
+    components.erase(typeid(Component));
+  }
+
   bool operator<(const Entity &rhs) const {
     return id < rhs.id;
   }

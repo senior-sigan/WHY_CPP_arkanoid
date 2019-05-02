@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.6)
 project(game LANGUAGES CXX) # имя проекта и язык используемый в проекте (c++)
 
 set(CMAKE_CXX_STANDARD 17) # стандарт с++ 2017
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -Wall -Werror -Wextra -Winit-self -Wswitch-default -Wfloat-equal -Wno-unused-const-variable -Wno-unused-parameter")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall -Werror -Wextra -Winit-self -Wswitch-default -Wfloat-equal -Wno-unused-const-variable -Wno-unused-parameter")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-variable")
 #set(CMAKE_CXX_FLAGS_RELEASE "-O3") # включаем оптимизаци компилятора
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")  # добавляем дебажные символы в бинарный файл для отладки
