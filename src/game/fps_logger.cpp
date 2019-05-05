@@ -5,18 +5,8 @@
 #include <sstream>
 
 void FpsLogger::Log(Context& ctx) {
-  sum += GetDelta(ctx);
-  i++;
-  if (sum >= timer) {
-    auto avg_dt = sum / i;
-    fps = int(1.0 / avg_dt);
-    // TODO: print somehow on the screen
-    //    LOG_INFO("FPS: %d", fps);
-    i = 0;
-    sum -= timer;
-  }
+  auto fps = GetFPS(ctx);
   std::stringstream ss;
   ss << "FPS=" << fps;
-
   Print(ctx, ss.str(), 10, 243, PALETTE[7]);
 }

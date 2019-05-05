@@ -4,11 +4,6 @@
 class Context;
 
 class FpsLogger {
-  const int timer = 1;  // print each 1 second
-  double sum = 0;
-  int i = 0;
-  int fps = 0;
-
  public:
   void Log(Context& ctx);
 };
