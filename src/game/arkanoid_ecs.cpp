@@ -27,6 +27,7 @@ void ArkanoidECS::OnCreate(Context &ctx) {
 }
 void ArkanoidECS::OnRender(Context &ctx) {
   scene_manager.OnUpdate();
+  fps_.Log(ctx);
 }
 void ArkanoidECS::OnDispose(Context &ctx) {
   scene_manager.OnDispose();

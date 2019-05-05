@@ -1,6 +1,10 @@
 #include <SDL.h>
 #include <SDL_error.h>
+#if __EMSCRIPTEN__
+#include <SDL2/SDL_mixer.h>
+#else
 #include <SDL_mixer.h>
+#endif
 #include <lib/music/music_manager.h>
 #include <whycpp/log.h>
 
