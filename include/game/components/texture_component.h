@@ -3,7 +3,7 @@
 #include <lib/ecs/i_component.h>
 #include <whycpp/color.h>
 #include <stdexcept>
-#include <strstream>
+#include <sstream>
 #include <utility>
 #include <vector>
 
@@ -22,7 +22,7 @@ class TextureComponent : public IComponent {
     auto h = (unsigned int) height;
 
     if (sprite.size() != w * h) {
-      std::strstream ss;
+      std::stringstream ss;
       ss << "Bad sprite size " << sprite.size() << " but expected " << width * height;
       throw std::invalid_argument(ss.str());
     }
